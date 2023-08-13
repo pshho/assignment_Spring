@@ -1,0 +1,8 @@
+package inter;
+
+public interface InterBrand {
+	void make();
+	void sell();
+	void calc();
+	void inventory();
+}

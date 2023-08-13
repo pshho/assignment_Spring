@@ -1,0 +1,60 @@
+package franchise;
+
+import java.util.Arrays;
+
+import classifications.SellSet;
+import inter.InterBrand;
+import menu.BeverageMenu;
+import menu.HamburgerMenu;
+import menu.SideMenu;
+
+public class McBrands implements InterBrand {
+	String name = "McDonald";
+	SellSet[] seDis;
+	HamburgerMenu hb;
+	SideMenu su;
+	BeverageMenu bm;
+
+	public void setSeDis(SellSet[] seDis) {
+		this.seDis = seDis;
+	}
+	public void setHb(HamburgerMenu hb) {
+		this.hb = hb;
+	}
+	public void setSu(SideMenu su) {
+		this.su = su;
+	}
+	public void setBm(BeverageMenu bm) {
+		this.bm = bm;
+	}
+	@Override
+	public String toString() {
+		return "McBrands [name=" + name + ", seDis=" + Arrays.toString(seDis) + ", hb=" + hb + ", su=" + su + ", bm="
+				+ bm + "]";
+	}
+	@Override
+	public void make() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void sell() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void cleaning() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void respond() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void inventory() {
+		// TODO Auto-generated method stub
+		
+	}
+}

@@ -1,0 +1,6 @@
+package menu;
+
+public class BeverageMenu {
+	String name, foodIngre;
+	int price, amount, size, calorie;
+}

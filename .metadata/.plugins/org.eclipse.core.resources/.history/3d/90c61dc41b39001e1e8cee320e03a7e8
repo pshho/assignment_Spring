@@ -1,0 +1,11 @@
+package bar;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+
+
+// 직원이 해야될 공통 행위 method interface
+public interface GangnamBar {
+	int menuCalc(List<Map<Objects, Integer>> calc); // 받은 주문 계산 method
+}

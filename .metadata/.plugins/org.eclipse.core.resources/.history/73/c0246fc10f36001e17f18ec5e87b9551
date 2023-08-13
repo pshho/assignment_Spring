@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean class="franchise.BurgerkingBrands" name="bg1">
+		<property name="seDis">
+			<list>
+				<ref bean="se1" />
+				<ref bean="se2" />
+				<ref bean="se3" />
+				<ref bean="se4" />
+			</list>
+		</property>
+		<property name="hb">
+			<list>			
+				<ref bean="hc1" />
+				<ref bean="hc2" />
+				<ref bean="hp1" />
+				<ref bean="hp2" />
+				<ref bean="hb1" />
+				<ref bean="hb2" />
+			</list>
+		</property>
+		<property name="su">
+			<list>			
+				<ref bean="s1" />
+				<ref bean="s2" />
+				<ref bean="s3" />
+			</list>
+		</property>
+		<property name="bm">
+			<list>			
+				<ref bean="b1" />
+				<ref bean="b2" />
+				<ref bean="b3" />
+			</list>
+		</property>
+		<property name="orders">
+			<list>
+				<value>닭닭버거</value>
+				<value>중간돼돼버거</value>
+				<value>촉촉감튀</value>
+				<value>캬톡톡음료</value>
+			</list>
+		</property>
+		<property name="count">
+			<list>
+				<value>2</value>
+				<value>1</value>
+				<value>3</value>
+				<value>4</value>
+			</list>
+		</property>
+	</bean>
+	<bean class="franchise.BurgerkingBrands" name="bg2">
+		<property name="seDis">
+			<list>
+				<ref bean="se1" />
+				<ref bean="se2" />
+				<ref bean="se3" />
+				<ref bean="se4" />
+			</list>
+		</property>
+		<property name="hb">
+			<list>			
+				<ref bean="hc1" />
+				<ref bean="hc2" />
+				<ref bean="hp1" />
+				<ref bean="hp2" />
+				<ref bean="hb1" />
+				<ref bean="hb2" />
+			</list>
+		</property>
+		<property name="su">
+			<list>			
+				<ref bean="s1" />
+				<ref bean="s2" />
+				<ref bean="s3" />
+			</list>
+		</property>
+		<property name="bm">
+			<list>			
+				<ref bean="b1" />
+				<ref bean="b2" />
+				<ref bean="b3" />
+			</list>
+		</property>
+		<property name="orders">
+			<list>
+				<value>대소대소버거세트</value>
+				<value>돼돼돼돼버거세트</value>
+				<value>작은닭닭버거세트</value>
+			</list>
+		</property>
+		<property name="count">
+			<list>
+				<value>6</value>
+				<value>4</value>
+				<value>9</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean class="classifications.SellSet" name="se1">
+		<constructor-arg value="작은닭닭버거세트" />
+		<constructor-arg value="hc2" />
+		<constructor-arg value="s2" />
+		<constructor-arg value="b3" />
+		<constructor-arg value="9200" />
+	</bean>
+	<bean class="classifications.SellSet" name="se2">
+		<constructor-arg value="대소대소버거세트" />
+		<constructor-arg value="hb1" />
+		<constructor-arg value="s1" />
+		<constructor-arg value="b1" />
+		<constructor-arg value="16600" />
+	</bean>
+	<bean class="classifications.SellSet" name="se3">
+		<constructor-arg value="중간돼돼버거세트" />
+		<constructor-arg value="hp1" />
+		<constructor-arg value="s3" />
+		<constructor-arg value="b2" />
+		<constructor-arg value="10700" />
+	</bean>
+	<bean class="classifications.SellSet" name="se4">
+		<constructor-arg value="돼돼돼돼버거세트" />
+		<constructor-arg value="hp2" />
+		<constructor-arg value="s3" />
+		<constructor-arg value="b3" />
+		<constructor-arg value="12300" />
+	</bean>
+	
+	<bean class="menu.HamburgerMenu" name="hc1">
+		<property name="name" value="닭닭버거" />
+		<property name="foodIngre" value="닭패티" />
+		<property name="size" value="대" />
+		<property name="calorie" value="800" />
+		<property name="price" value="7500" />
+	</bean>
+	<bean class="menu.HamburgerMenu" name="hc2">
+		<property name="name" value="작은닭닭버거" />
+		<property name="foodIngre" value="닭패티" />
+		<property name="size" value="소" />
+		<property name="calorie" value="400" />
+		<property name="price" value="3500" />
+	</bean>
+	<bean class="menu.HamburgerMenu" name="hp1">
+		<property name="name" value="중간돼돼버거" />
+		<property name="foodIngre" value="돼지패티" />
+		<property name="size" value="중" />
+		<property name="calorie" value="600" />
+		<property name="price" value="6500" />
+	</bean>
+	<bean class="menu.HamburgerMenu" name="hp2">
+		<property name="name" value="돼돼돼돼버거" />
+		<property name="foodIngre" value="돼지패티" />
+		<property name="size" value="대" />
+		<property name="calorie" value="800" />
+		<property name="price" value="8500" />
+	</bean>
+	<bean class="menu.HamburgerMenu" name="hb1">
+		<property name="name" value="대소대소버거" />
+		<property name="foodIngre" value="소패티" />
+		<property name="size" value="대" />
+		<property name="calorie" value="800" />
+		<property name="price" value="9500" />
+	</bean>
+	<bean class="menu.HamburgerMenu" name="hb2">
+		<property name="name" value="소소버거" />
+		<property name="foodIngre" value="소패티" />
+		<property name="size" value="소" />
+		<property name="calorie" value="400" />
+		<property name="price" value="5500" />
+	</bean>
+	<bean class="menu.SideMenu" name="s1">
+		<property name="name" value="너너겟" />
+		<property name="kind" value="치킨(닭)" />
+		<property name="calorie" value="250" />
+		<property name="price" value="2300" />
+	</bean>
+	<bean class="menu.SideMenu" name="s2">
+		<property name="name" value="촉촉감튀" />
+		<property name="kind" value="감자" />
+		<property name="calorie" value="140" />
+		<property name="price" value="1200" />
+	</bean>
+	<bean class="menu.SideMenu" name="s3">
+		<property name="name" value="알콘알콘" />
+		<property name="kind" value="옥수수" />
+		<property name="calorie" value="80" />
+		<property name="price" value="1400" />
+	</bean>
+	<bean class="menu.BeverageMenu" name="b1">
+		<property name="name" value="차차찬차" />
+		<property name="kind" value="차" />
+		<property name="calorie" value="3300" />
+		<property name="driDis" value="차가운" />
+		<property name="price" value="110" />
+	</bean>
+	<bean class="menu.BeverageMenu" name="b2">
+		<property name="name" value="하핫커피" />
+		<property name="kind" value="커피" />
+		<property name="calorie" value="1800" />
+		<property name="driDis" value="뜨거운" />
+		<property name="price" value="70" />
+	</bean>
+	<bean class="menu.BeverageMenu" name="b3">
+		<property name="name" value="캬톡톡음료" />
+		<property name="kind" value="탄산음료" />
+		<property name="calorie" value="2200" />
+		<property name="driDis" value="차가운" />
+		<property name="price" value="140" />
+	</bean>
+	
+</beans>

@@ -1,0 +1,12 @@
+package bar;
+
+import java.util.List;
+
+import bar.menu.Alcohol;
+import bar.menu.AlcoholSet;
+import bar.menu.DrinkDish;
+
+public interface GangnamBar {
+	int menuCalc(Alcohol al, DrinkDish drd, AlcoholSet alSet);
+	List<String> ordered(String... order); // 주문 받는 method
+}

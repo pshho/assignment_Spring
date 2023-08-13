@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="inter.InterBrand"/>
+    <fullyQualifiedTypeName name="classifications.SellDistinct"/>
+    <fullyQualifiedTypeName name="classifications.SellSingle"/>
+    <fullyQualifiedTypeName name="menu.HamburgerMenu"/>
+    <fullyQualifiedTypeName name="classifications.SellSet"/>
+    <fullyQualifiedTypeName name="menu.SideMenu"/>
+    <fullyQualifiedTypeName name="menu.BeverageMenu"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.AbstractApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
+    <fullyQualifiedTypeName name="franchise.BurgerkingBrands"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.text.DecimalFormat"/>
+    <fullyQualifiedTypeName name="bar.menu.Alcohol"/>
+</qualifiedTypeNameHistroy>

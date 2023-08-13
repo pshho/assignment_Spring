@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.springframework.org/schema/beans"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+http://www.springframework.org/schema/context
+https://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<bean class="coffee.lifecycle.CoffeeBeanPostProcessor" />
+	<!-- 커피 -->
+	<bean name="cofs" class="coffee.Coffee">
+		<property name="cofs">
+			<map>
+				<entry>
+					<key><value>아샷추</value></key>
+					<value>4400</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean name="cof2" class="coffee.Coffee">
+		<property name="cofs">
+			<map>
+				<entry>
+					<key><value>꿀커피</value></key>
+					<value>2400</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	<context:annotation-config/>
+	<bean class="coffee.lifecycle.CoffeeBeanFactoryPostProcessor" />
+</beans>

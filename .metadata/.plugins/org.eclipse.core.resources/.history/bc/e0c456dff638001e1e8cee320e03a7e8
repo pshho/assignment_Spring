@@ -1,0 +1,14 @@
+package bar.store;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import bar.employee.Employee;
+
+public class GangBar {
+	String name; // 이름
+	int balance; // 가게 잔고
+	@Autowired(required = false)
+	List<Employee> emp; // 직원
+}

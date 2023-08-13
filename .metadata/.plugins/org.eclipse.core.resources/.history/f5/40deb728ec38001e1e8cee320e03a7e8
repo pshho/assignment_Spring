@@ -1,0 +1,8 @@
+package bar;
+
+public interface GangnamBar {
+	void make();
+	void serving();
+	void menuCalc();
+	void ordered(String order);
+}

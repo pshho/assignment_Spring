@@ -1,0 +1,31 @@
+package franchise;
+
+import inter.InterBrand;
+
+public class brands implements InterBrand {
+
+	@Override
+	public void make() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void sell() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void cleaning() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void respond() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

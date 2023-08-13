@@ -1,0 +1,35 @@
+package franchise;
+
+import classifications.SellSet;
+import inter.InterBrand;
+
+public class MCBrands implements InterBrand {
+	String name;
+	SellSet sDis1, sDis2;
+
+	@Override
+	public void make() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void sell() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void cleaning() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void respond() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void inventory() {
+		// TODO Auto-generated method stub
+		
+	}
+}

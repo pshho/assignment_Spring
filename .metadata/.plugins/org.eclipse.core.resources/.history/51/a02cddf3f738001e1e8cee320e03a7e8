@@ -1,0 +1,16 @@
+package bar.menu;
+
+import java.util.Map;
+
+public class DrinkDish {
+	Map<String, List<Map<String, Integer>>> drinDish;
+
+	public void setDrinDish(Map<String, Map<String, Integer>> drinDish) {
+		this.drinDish = drinDish;
+	}
+
+	@Override
+	public String toString() {
+		return "DrinkDish [drinDish=" + drinDish + "]";
+	}
+}

@@ -1,0 +1,7 @@
+package classifications;
+
+public class SellSet {
+	String kind = "세트";
+	int price;
+	int amount;
+}

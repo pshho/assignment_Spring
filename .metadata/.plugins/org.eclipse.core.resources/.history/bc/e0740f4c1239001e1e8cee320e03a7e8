@@ -1,0 +1,60 @@
+package bar.store;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import bar.menu.Alcohol;
+import bar.menu.DrinkDish;
+import jakarta.annotation.Resource;
+
+public class Table {
+	String tableName;
+	int tableSum;
+	
+	@Autowired
+	@Qualifier("alcs")
+	List<Map<Alcohol, Integer>> alcs;
+	
+	@Resource
+	List<Map<DrinkDish, Integer>> driDish;
+
+	public String getTableName() {
+		return tableName;
+	}
+
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
+	}
+
+	public int getTableSum() {
+		return tableSum;
+	}
+
+	public void setTableSum(int tableSum) {
+		this.tableSum = tableSum;
+	}
+
+	public List<Map<Alcohol, Integer>> getAlcs() {
+		return alcs;
+	}
+
+	public void setAlcs(List<Map<Alcohol, Integer>> alcs) {
+		this.alcs = alcs;
+	}
+
+	public List<Map<DrinkDish, Integer>> getDriDish() {
+		return driDish;
+	}
+
+	public void setDriDish(List<Map<DrinkDish, Integer>> driDish) {
+		this.driDish = driDish;
+	}
+	@Override
+	public String toString() {
+		return "Table [tableName=" + tableName + ", tableSum=" + tableSum + ", alcs=" + alcs + ", driDish=" + driDish
+				+ "]";
+	}
+}

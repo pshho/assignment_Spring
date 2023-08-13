@@ -1,0 +1,10 @@
+package bar;
+
+import bar.menu.Alcohol;
+import bar.menu.AlcoholSet;
+import bar.menu.DrinkDish;
+
+// 직원이 해야될 공통 행위 method interface
+public interface GangnamBar {
+	int menuCalc(Alcohol al, DrinkDish drd, AlcoholSet alSet); // 받은 주문 계산 method
+}

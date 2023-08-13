@@ -1,0 +1,31 @@
+1691490906347	Delete element
+1691491004133	Rename type 'InterHamburger'
+1691491007213	Rename type 'Inter'
+1691491170747	Rename package 'franchise'
+1691491252780	Rename type 'brands'
+1691491294990	Rename type 'KFCbrands'
+1691491299229	Rename type 'MCbrands'
+1691491849035	Rename type 'SellDistinct'
+1691492511437	Rename type 'MCBrands'
+1691492978269	Delete element
+1691494537375	Delete element
+1691494633933	Delete element
+1691505597153	Delete element
+1691506638164	Rename resource 'tBicycle.xml'
+1691827046246	Rename package 'menu'
+1691827062173	Copy package
+1691827078147	Delete element
+1691827095960	Rename package 'hamburgerMenu'
+1691827100914	Rename package 'classifications'
+1691827111975	Rename package 'inter'
+1691827179668	Rename package 'bar.alcohol'
+1691827282891	Rename type 'BarSnack'
+1691827434065	Rename package 'bar.factory'
+1691834865910	Delete element
+1691836554032	Rename resource 'alcoholParts.xml'
+1691836578994	Copy file
+1691840149117	Rename resource 'alcohol.xml'
+1691843480003	Delete element
+1691852677637	Infer generic type arguments
+1691858509347	Rename resource 'tableParts.xml'
+1691867495576	Delete element

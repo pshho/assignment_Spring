@@ -1,0 +1,6 @@
+package menu;
+
+public class SideMenu {
+	String name, foodIngre;
+	int price, amount, size, calorie;
+}

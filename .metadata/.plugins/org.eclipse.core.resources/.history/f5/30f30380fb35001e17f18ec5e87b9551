@@ -1,0 +1,39 @@
+package franchise;
+
+import java.util.Arrays;
+
+import classifications.SellSet;
+import inter.InterBrand;
+import menu.BeverageMenu;
+import menu.HamburgerMenu;
+import menu.SideMenu;
+
+public class BurgerkingBrands implements InterBrand {
+	String name = "BurgerKing";
+	SellSet[] seDis;
+	HamburgerMenu hb;
+	SideMenu su;
+	BeverageMenu bm;
+	int count;
+	
+	@Override
+	public void make() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void sell() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void calc() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void inventory() {
+		// TODO Auto-generated method stub
+		
+	}
+}

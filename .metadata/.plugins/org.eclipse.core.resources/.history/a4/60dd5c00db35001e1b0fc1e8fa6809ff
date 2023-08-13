@@ -1,0 +1,37 @@
+package franchise;
+
+import classifications.SellSet;
+import classifications.SellSingle;
+import inter.InterBrand;
+
+public class McBrands implements InterBrand {
+	String name = "";
+	SellSet seDis;
+	SellSingle siDis;
+
+	@Override
+	public void make() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void sell() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void cleaning() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void respond() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void inventory() {
+		// TODO Auto-generated method stub
+		
+	}
+}

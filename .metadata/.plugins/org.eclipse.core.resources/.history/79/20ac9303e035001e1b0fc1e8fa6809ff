@@ -1,0 +1,13 @@
+package test;
+
+import menu.BeverageMenu;
+import menu.HamburgerMenu;
+import menu.SideMenu;
+
+public class HTEST {
+	public static void main(String[] args) {
+		HamburgerMenu hm = new HamburgerMenu();
+		SideMenu su = new SideMenu();
+		BeverageMenu bm = new BeverageMenu();
+	}
+}

@@ -1,0 +1,10 @@
+package bar.store;
+
+import java.util.List;
+
+import bar.employee.Employee;
+
+public class GangBar {
+	int balance; // 가게 잔고
+	List<Employee> emp; // 직원
+}

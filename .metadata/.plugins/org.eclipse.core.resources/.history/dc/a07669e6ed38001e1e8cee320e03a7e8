@@ -1,0 +1,6 @@
+package bar.store;
+
+public class GangBar {
+	int balance; // 가게 잔고
+	
+}

@@ -1,0 +1,17 @@
+package classifications;
+
+import menu.BeverageMenu;
+import menu.HamburgerMenu;
+import menu.SideMenu;
+
+public class SellSet {
+	String kind = "세트 메뉴";
+	SellSet[] seDis;
+	HamburgerMenu hb;
+	SideMenu su;
+	BeverageMenu bm;
+	
+	public SellSet(HamburgerMenu hb, SideMenu su, BeverageMenu bm) {
+		
+	}
+}

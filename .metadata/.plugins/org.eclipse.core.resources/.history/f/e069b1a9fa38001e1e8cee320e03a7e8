@@ -1,0 +1,9 @@
+package bar.menu;
+
+public class Alcohol {
+	String kinds;
+	String name;
+	int price;
+	
+	
+}

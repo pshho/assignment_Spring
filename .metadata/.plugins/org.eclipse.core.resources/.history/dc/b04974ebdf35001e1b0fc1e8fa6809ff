@@ -1,0 +1,13 @@
+package classifications;
+
+import menu.BeverageMenu;
+import menu.HamburgerMenu;
+import menu.SideMenu;
+
+public class SellSingle {
+	String kind = "단일 메뉴";
+	HamburgerMenu hb;
+	SideMenu su;
+	BeverageMenu bm;
+	
+}

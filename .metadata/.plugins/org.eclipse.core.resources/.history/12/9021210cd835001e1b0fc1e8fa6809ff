@@ -1,0 +1,23 @@
+package franchise;
+
+import inter.InterBrand;
+
+public class brands implements InterBrand {
+
+	@Override
+	public void make() {
+	}
+
+	@Override
+	public void sell() {
+	}
+
+	@Override
+	public void cleaning() {
+	}
+
+	@Override
+	public void respond() {
+	}
+
+}
