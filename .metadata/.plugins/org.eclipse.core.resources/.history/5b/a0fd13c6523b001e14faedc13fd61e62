@@ -1,0 +1,18 @@
+package clothing.clothesParts;
+
+public class ClotheFoots extends Clothes {
+	String kinds = "신발류";
+
+	public ClotheFoots() {
+		super();
+	}
+
+	public ClotheFoots(String category, String name, int status) {
+		super(category, name, status);
+	}
+
+	@Override
+	public String toString() {
+		return "ClotheFoots [kinds=" + kinds + ", category=" + category + ", name=" + name + ", status=" + status + "]";
+	}
+}

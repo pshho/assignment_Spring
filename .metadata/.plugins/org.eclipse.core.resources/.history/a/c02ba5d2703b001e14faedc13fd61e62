@@ -1,0 +1,27 @@
+package clothes_p.clothesParts;
+
+// 상의
+public class ClotheBodyTop extends Clothes {
+	String kinds = "상의류";
+	String places; // 장소에 따라 다른 상의
+
+	public ClotheBodyTop() {
+		super();
+	}
+
+	public ClotheBodyTop(String places, String category, String name, int status) {
+		super(category, name, status);
+		this.places = places;
+	}
+
+	public String getPlaces() {
+		return places;
+	}
+
+	@Override
+	public String toString() {
+		return "ClotheBodyTop [kinds=" + kinds + ", places=" + places + ", category=" + category + ", name=" + name
+				+ ", status=" + status + "]";
+	}
+
+}

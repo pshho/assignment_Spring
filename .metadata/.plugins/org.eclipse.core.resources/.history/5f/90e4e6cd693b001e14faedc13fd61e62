@@ -1,0 +1,21 @@
+package persons_p;
+
+public class Place {
+	String place, address;
+
+	
+	public Place() {
+		super();
+	}
+
+	public Place(String place, String address) {
+		super();
+		this.place = place;
+		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "Place [place=" + place + ", address=" + address + "]";
+	}
+}

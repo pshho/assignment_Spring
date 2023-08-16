@@ -1,0 +1,64 @@
+package persons_p;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+import clothes_p.clothesParts.ClotheAccesory;
+import clothes_p.clothesParts.ClotheBodyBottom;
+import clothes_p.clothesParts.ClotheBodyTop;
+import clothes_p.clothesParts.ClotheFoots;
+import clothes_p.clothesParts.ClotheGlasses;
+import clothes_p.clothesParts.ClotheHead;
+import persons_p.personParts.Body;
+import persons_p.personParts.Foots;
+import persons_p.personParts.Hands;
+import persons_p.personParts.Head;
+
+@Configuration
+@ComponentScan("clothes_p")
+public class personPutOn {
+	@Bean
+	Foots shoes(String place, ClotheFoots... selectShooes) {
+		for(ClotheFoots shoe : selectShooes) {
+			if("스키장".equals(shoe.getPlaces())) {
+				return new Foots(shoe);
+			}
+		}
+		return new Foots();
+	}
+	
+	@Bean
+	Body clothes(String place, ClotheBodyTop[] selectCt, ClotheBodyBottom... selectCb) {
+		for(ClotheBodyBottom clthB : selectCb) {
+			for(ClotheBodyTop clthT : selectCt) {
+				if("스키장".equals(clthB.getPlaces()) && "스키장".equals(clthT.getPlaces())) {
+					return new Body(clthT, clthB);
+				}
+			}
+		}
+		return new Body();
+	}
+	
+	@Bean
+	Hands accesory(String place, ClotheAccesory... selectAcc) {
+		for(ClotheAccesory acc : selectAcc) {
+			if("쇼핑가".equals(acc.getPlaces())) {
+				return new Hands(acc);
+			}
+		}
+		return new Hands();
+	}
+	
+	@Bean
+	Head hatGlas(String place, ClotheGlasses[] selectGlass, ClotheHead... selectHat) {
+		for(ClotheGlasses glass : selectGlass) {
+			for(ClotheHead hat : selectHat) {
+				if("스키장".equals(glass.getPlaces()) && "스키장".equals(hat.getPlaces())) {
+					return new Head(hat, glass);
+				}				
+			}
+		}
+		return new Head();
+	}
+}

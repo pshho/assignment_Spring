@@ -1,0 +1,30 @@
+1692028652437	Rename type 'Foot'
+1692028654831	Rename type 'Hand'
+1692028711005	Rename type 'Body'
+1692078914012	Rename resource 'component.xml'
+1692082760275	Rename type 'Clothes'
+1692083594198	Delete element
+1692083599783	Rename type 'BodyBottom'
+1692085961683	Delete element
+1692085962741	Delete element
+1692085963557	Delete element
+1692085964267	Delete element
+1692085965148	Delete element
+1692085979981	Rename type 'SuitClothe'
+1692093703307	Rename package 'clothing'
+1692093719176	Rename package 'clothing.clothesParts'
+1692093735364	Move compilation unit
+1692093751928	Rename package 'clothing'
+1692093770811	Rename package 'clothing.main'
+1692093786123	Rename package 'clothing.personParts'
+1692093795708	Move compilation unit
+1692093798051	Move compilation unit
+1692096682355	Rename type 'PersonClothes'
+1692099658811	Rename type 'SuitClothe'
+1692101077138	Copy compilation unit
+1692101080763	Rename type 'Eye'
+1692101293247	Copy compilation unit
+1692101297779	Rename type 'Body'
+1692102260406	Rename type 'personPutOn'
+1692102803552	Delete element
+1692104150291	Delete element

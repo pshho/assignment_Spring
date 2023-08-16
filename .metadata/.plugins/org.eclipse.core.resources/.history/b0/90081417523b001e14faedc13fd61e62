@@ -1,0 +1,17 @@
+package clothing.clothesParts;
+
+public class ClotheAccesory extends Clothes {
+
+	public ClotheAccesory() {
+		super();
+	}
+
+	public ClotheAccesory(String name, String category, int status) {
+		super(name, status);
+	}
+
+	@Override
+	public String toString() {
+		return "ClotheAccesory [kinds=" + kinds + ", name=" + name + ", status=" + status + "]";
+	}
+}

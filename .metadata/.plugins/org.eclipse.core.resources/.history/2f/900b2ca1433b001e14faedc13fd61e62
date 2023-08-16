@@ -1,0 +1,5 @@
+package clothing.clothesParts;
+
+public class ClotheAccesory extends Clothes {
+	String kinds = "액세서리류";
+}

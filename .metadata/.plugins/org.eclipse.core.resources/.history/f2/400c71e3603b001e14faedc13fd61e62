@@ -1,0 +1,23 @@
+package clothes_p.clothesParts;
+
+// 한벌옷
+public class ClotheGlasses extends Clothes {
+	String kinds = "한벌옷";
+	String places;
+
+	public ClotheGlasses() {
+		super();
+	}
+
+	public ClotheGlasses(String places, String category, String name, int status) {
+		super(category, name, status);
+		this.places = places;
+	}
+
+	@Override
+	public String toString() {
+		return "SuitClothe [kinds=" + kinds + ", places=" + places + ", category=" + category + ", name=" + name
+				+ ", status=" + status + "]";
+	}
+
+}

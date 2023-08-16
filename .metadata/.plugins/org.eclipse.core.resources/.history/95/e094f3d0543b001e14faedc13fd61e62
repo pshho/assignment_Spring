@@ -1,0 +1,17 @@
+package clothes_p.clothesParts;
+
+public class Clothes {
+	// 의류의 부위별로 가지는 요소들 상속
+	String category, name;
+	int status;
+	
+	public Clothes() {
+		
+	}
+	public Clothes(String category, String name, int status) {
+		super();
+		this.category = category;
+		this.name = name;
+		this.status = status;
+	}
+}

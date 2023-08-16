@@ -1,0 +1,6 @@
+package clothing.clothesParts;
+
+public class Clothes {
+	String name;
+	int status;
+}

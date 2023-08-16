@@ -1,9 +1,0 @@
-package inter;
-
-public interface InterBrand {
-	void make();
-	void sell();
-	void cleaning();
-	void respond();
-	void inventory();
-}

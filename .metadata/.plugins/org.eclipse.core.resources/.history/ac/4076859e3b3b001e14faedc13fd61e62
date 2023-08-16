@@ -1,0 +1,9 @@
+package clothing.personParts;
+
+import clothing.clothesParts.ClotheFoots;
+
+public class Foots {
+	String name = "발";
+	boolean putOnOff;
+	ClotheFoots cfs;
+}

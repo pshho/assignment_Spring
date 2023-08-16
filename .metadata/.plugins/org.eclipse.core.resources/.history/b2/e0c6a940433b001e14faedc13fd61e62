@@ -1,0 +1,12 @@
+package clothing.clothesParts;
+
+public class ClotheHead extends Clothes {
+	
+	public ClotheHead() {
+		super();
+	}
+
+	public ClotheHead(String name, String kinds, int status) {
+		super(name, kinds, status);
+	}
+}

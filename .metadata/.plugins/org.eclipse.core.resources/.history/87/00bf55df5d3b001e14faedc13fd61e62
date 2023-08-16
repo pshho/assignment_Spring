@@ -1,0 +1,21 @@
+package clothes_p.clothesParts;
+
+// 상의
+public class ClotheBodyTop extends Clothes {
+	String kinds = "상의류";
+
+	public ClotheBodyTop() {
+		super();
+	}
+
+	public ClotheBodyTop(String category, String name, int status) {
+		super(category, name, status);
+	}
+
+	@Override
+	public String toString() {
+		return "ClotheBodyTop [kinds=" + kinds + ", category=" + category + ", name=" + name + ", status=" + status
+				+ "]";
+	}
+
+}

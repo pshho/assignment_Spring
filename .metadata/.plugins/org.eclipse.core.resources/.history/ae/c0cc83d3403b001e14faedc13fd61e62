@@ -1,0 +1,12 @@
+package clothing.personParts;
+
+import org.springframework.stereotype.Component;
+
+import clothing.clothesParts.Clothes;
+
+@Component
+public class Body {
+	String name = "몸";
+	boolean putOnOff; // 착용, 미착용
+	Clothes cbt; // 상의
+}

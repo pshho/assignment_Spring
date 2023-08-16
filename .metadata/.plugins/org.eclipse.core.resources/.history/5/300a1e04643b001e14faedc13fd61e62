@@ -1,0 +1,24 @@
+package persons_p.personParts;
+
+import clothes_p.clothesParts.ClotheGlasses;
+import clothes_p.clothesParts.ClotheHead;
+
+// 눈
+public class Eyes {
+	String name = "눈";
+	ClotheGlasses cg; // 안경류
+	
+	public Eyes() {
+		super();
+	}
+
+	public Eyes(ClotheGlasses cg) {
+		super();
+		this.cg = cg;
+	}
+
+	@Override
+	public String toString() {
+		return "Eyes [name=" + name + ", cg=" + cg + "]";
+	}
+}

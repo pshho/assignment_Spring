@@ -1,0 +1,6 @@
+package clothing.clothesParts;
+
+public class ClotheBodyTop {
+	String name;
+	int status;
+}

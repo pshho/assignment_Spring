@@ -1,0 +1,26 @@
+package clothes_p.clothesParts;
+
+// 모자
+public class ClotheHead extends Clothes {
+	String kinds = "모자류";
+	String places; // 장소에 따라 다른 모자
+	
+	public ClotheHead() {
+		super();
+	}
+
+	public ClotheHead(String places, String category, String name, int status) {
+		super(category, name, status);
+		this.places = places;
+	}
+
+	public String getPlaces() {
+		return places;
+	}
+
+	@Override
+	public String toString() {
+		return "ClotheHead [kinds=" + kinds + ", places=" + places + ", category=" + category + ", name=" + name
+				+ ", status=" + status + "]";
+	}
+}

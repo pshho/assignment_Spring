@@ -1,0 +1,6 @@
+package clothes_p;
+
+public interface PersonClothes {
+	public Bag putOnOff();
+	public void travel(int day, String place);
+}

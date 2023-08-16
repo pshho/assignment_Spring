@@ -1,0 +1,19 @@
+package clothing.personParts;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import clothing.clothesParts.ClotheAccesory;
+import jakarta.annotation.Resource;
+
+@Component
+public class Hands {
+	String name = "손";
+	@Resource
+	ClotheAccesory clac; // 액세서리류
+	
+	@Override
+	public String toString() {
+		return "Hands [name=" + name + ", clac=" + clac + "]";
+	}
+}

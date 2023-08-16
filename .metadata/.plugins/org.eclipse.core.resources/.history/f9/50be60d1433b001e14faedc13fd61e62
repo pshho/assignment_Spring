@@ -1,0 +1,13 @@
+package clothing.clothesParts;
+
+public class SuitClothe extends Clothes {
+	String kinds = "한벌옷";
+
+	public SuitClothe() {
+		super();
+	}
+
+	public SuitClothe(String name, int status) {
+		super(name, status);
+	}
+}

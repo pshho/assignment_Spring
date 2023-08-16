@@ -1,0 +1,6 @@
+package clothing.personParts;
+
+public class Hands {
+	String name = "손";
+	
+}

@@ -1,0 +1,13 @@
+package clothing.personParts;
+
+import clothing.clothesParts.ClotheBodyBottom;
+import clothing.clothesParts.ClotheBodyTop;
+import clothing.clothesParts.SuitClothe;
+
+public class Body {
+	String name = "몸";
+	boolean putOnOff;
+	ClotheBodyTop cbt;
+	ClotheBodyBottom cbb;
+	SuitClothe sc;
+}

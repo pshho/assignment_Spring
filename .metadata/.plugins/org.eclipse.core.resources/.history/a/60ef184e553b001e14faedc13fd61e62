@@ -1,0 +1,24 @@
+package persons_p.personParts;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import clothes_p.clothesParts.ClotheBodyBottom;
+import clothes_p.clothesParts.ClotheBodyTop;
+import clothes_p.clothesParts.SuitClothe;
+
+@Component
+public class Body {
+	String name = "몸";
+	@Autowired
+	ClotheBodyTop cbt; // 상의
+	@Autowired
+	ClotheBodyBottom cbb; // 하의
+	@Autowired
+	SuitClothe sc; // 한벌옷
+	
+	@Override
+	public String toString() {
+		return "Body [name=" + name + ", cbt=" + cbt + ", cbb=" + cbb + ", sc=" + sc + "]";
+	}
+}

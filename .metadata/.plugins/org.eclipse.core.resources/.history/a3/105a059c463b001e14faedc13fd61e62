@@ -1,0 +1,11 @@
+package clothing.personParts;
+
+import org.springframework.stereotype.Component;
+
+import clothing.clothesParts.ClotheHead;
+
+@Component
+public class Head {
+	String name = "머리";
+	ClotheHead ch; // 모자류
+}

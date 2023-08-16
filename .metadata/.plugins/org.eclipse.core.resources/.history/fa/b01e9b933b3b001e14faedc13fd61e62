@@ -1,0 +1,9 @@
+package clothing.personParts;
+
+import clothing.clothesParts.ClotheHead;
+
+public class Head {
+	String name = "머리";
+	boolean putOnOff; // 착용, 미착용
+	ClotheHead ch;
+}

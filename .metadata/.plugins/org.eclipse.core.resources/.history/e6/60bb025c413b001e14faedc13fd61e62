@@ -1,0 +1,15 @@
+package clothing.clothesParts;
+
+public class ClotheHead extends Clothes {
+
+	public ClotheHead() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public ClotheHead(String name, String kinds, int status) {
+		super(name, kinds, status);
+		// TODO Auto-generated constructor stub
+	}
+	
+}

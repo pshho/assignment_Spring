@@ -1,0 +1,9 @@
+package clothing.main;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class ClotheMainXml {
+	AbstractApplicationContext context =
+			new ClassPathXmlApplicationContext();
+}

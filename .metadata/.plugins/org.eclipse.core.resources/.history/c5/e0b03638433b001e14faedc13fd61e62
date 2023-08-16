@@ -1,0 +1,20 @@
+package clothing.clothesParts;
+
+public class Clothes {
+	String name, kinds;
+	int status;
+	
+	public Clothes() {
+		
+	}
+	public Clothes(String name, String kinds, int status) {
+		super();
+		this.name = name;
+		this.kinds = kinds;
+		this.status = status;
+	}
+	@Override
+	public String toString() {
+		return "Clothes [name=" + name + ", kinds=" + kinds + ", status=" + status + "]";
+	}
+}

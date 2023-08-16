@@ -1,0 +1,25 @@
+package persons_p.personParts;
+
+import clothes_p.clothesParts.ClotheBodyBottom;
+import clothes_p.clothesParts.ClotheBodyTop;
+
+// 상의
+public class BodyTop {
+	String name = "몸";
+	ClotheBodyTop cbt; // 상의
+	
+	public BodyTop() {
+		super();
+	}
+
+	public BodyTop(ClotheBodyTop cbt, ClotheBodyBottom cbb) {
+		super();
+		this.cbt = cbt;
+		this.cbb = cbb;
+	}
+
+	@Override
+	public String toString() {
+		return "Body [name=" + name + ", cbt=" + cbt + ", cbb=" + cbb + "]";
+	}
+}

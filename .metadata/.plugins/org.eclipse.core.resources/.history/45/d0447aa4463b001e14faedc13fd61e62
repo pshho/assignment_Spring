@@ -1,0 +1,5 @@
+package clothing;
+
+public interface PersonClothes {
+	public Bag putOnOff();
+}

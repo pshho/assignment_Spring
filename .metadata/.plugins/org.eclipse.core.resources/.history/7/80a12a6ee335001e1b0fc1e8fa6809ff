@@ -1,7 +1,0 @@
-package menu;
-
-public class HamburgerMenu {
-	String name, foodIngre, kind;
-	int price, amount, size, calorie;
-	
-}

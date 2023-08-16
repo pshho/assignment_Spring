@@ -1,0 +1,9 @@
+package clothing.personParts;
+
+import clothing.clothesParts.ClotheAccesory;
+
+public class Hands {
+	String name = "손";
+	boolean putOnOff; // 착용, 미착용
+	ClotheAccesory clac; // 액세서리류
+}

@@ -1,0 +1,6 @@
+package clothing.personParts;
+
+public class Head {
+	String name = "손";
+	boolean putOnOff;
+}
