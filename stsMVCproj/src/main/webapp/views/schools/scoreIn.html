@@ -45,8 +45,7 @@
 					<!-- 학생 데이터를 학급 클래스에 바인딩, 그 데이터를 데이터 클래스에서 리스트로 받음 -->
 					<td>
 						<input type="text" 
-							th:name="|stdData[${nm}].students.stdName|" 
-							th:value="${'학생'+(nm+1)}" />
+							th:name="|stdData[${nm}].students.stdName|" />
 						<input type="hidden" th:name="|stdData[${nm}].classes|" th:value="${clsRoom[arrClass[nm]]}" />
 					</td>
 					<!-- 과목 수 만큼 열 반복 -->
