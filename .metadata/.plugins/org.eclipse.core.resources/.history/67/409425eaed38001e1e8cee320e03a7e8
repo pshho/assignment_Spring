@@ -1,8 +1,0 @@
-package bar.store;
-
-import bar.employee.Employee;
-
-public class GangBar {
-	int balance; // 가게 잔고
-	Employee emp; // 직원
-}

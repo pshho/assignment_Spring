@@ -1,7 +1,0 @@
-package bar.menu;
-
-import java.util.Map;
-
-public class DrinkDish {
-	Map<String, Map<String, Integer>> driDish;
-}

@@ -1,7 +1,0 @@
-package menu;
-
-public class BeverageMenu {
-	String name, kind;
-	int price, amount, calorie;
-	
-}

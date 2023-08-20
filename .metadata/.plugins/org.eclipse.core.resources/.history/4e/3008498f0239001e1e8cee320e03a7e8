@@ -1,6 +1,0 @@
-package bar.menu;
-
-public class DrinkDish {
-	String kinds, name;
-	int price;
-}

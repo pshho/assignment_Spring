@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Score Input</title>
+<script type="text/javascript">
+	function clickNumber(){
+		let form = document.scores;
+		// alert("누름?");
+		form.action = "?";
+		form.submit();
+	}
+</script>
+</head>
+<body>
+	<h1>Score Input</h1>
+	<form action="scoredOut" name="scores" method="post">
+		<table border="">
+			<tr>
+				<td>
+					<!-- 사람 수 랜덤하게 입력 가능 -->
+					<input type="number" name="nums" placeholder="사람 수 입력" 
+							th:value="${ #strings.isEmpty(nums) ? 0 : nums }" />
+					<input type="button" onclick="clickNumber()" value="입력" />
+				</td>
+				<!-- 과목수 선택, 국영수/국영수사과/국영수사과한체 -->
+				<td align="right" th:colspan="${ #strings.isEmpty(subs) ? 2 : #arrays.length(subs) }">
+					<select name="subject" onchange="clickNumber()">
+						<option th:each="sb:${subjs}" th:value="${ sb }"
+							th:selected="${ sb == subject }">[[${ sb }]]</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>이름</td>
+				<!-- 선택된 과목수에 따라 달라지는 과목 -->
+				<td th:each="sub : ${ subs }">
+					[[${ sub }]]
+				</td>
+			</tr>
+			<!-- 과목과 인원수를 선택하면 입력창이 그에 맞게 나타남 -->
+			<th:block th:if="${ nums != null and nums != 0 and !#strings.contains(subject,'전체') }">
+				<!-- 인원수 만큼 행 반복 -->
+				<tr th:each="nm:${#numbers.sequence(0,nums-1)}">
+					<!-- 학생 데이터를 학급 클래스에 바인딩, 그 데이터를 데이터 클래스에서 리스트로 받음 -->
+					<td>
+						<input type="text" 
+							th:name="|stdData[${nm}].students.stdName|" 
+							th:value="${'학생'+(nm+1)}" />
+						<input type="hidden" th:name="|stdData[${nm}].classes|" th:value="${clsRoom[arrClass[nm]]}" />
+					</td>
+					<!-- 과목 수 만큼 열 반복 -->
+					<td th:each="nnm : ${#numbers.sequence(0,#arrays.length(subs)-1)}">
+						<!-- 랜덤 점수 -->
+						<input type="text" 
+							th:name="|stdData[${nm}].students.subjects.scores[${subs[nnm]}]|"
+							th:value="${arrRd[nm][nnm]}" />
+					</td>
+				</tr>
+			</th:block>
+			<tr>
+				<td th:colspan="${ #strings.isEmpty(subs) ? 2 : #arrays.length(subs) + 1 }" 
+					align="right">
+					<input type="submit" value="등록" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

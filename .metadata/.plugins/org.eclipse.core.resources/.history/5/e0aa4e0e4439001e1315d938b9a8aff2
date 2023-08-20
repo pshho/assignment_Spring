@@ -1,9 +1,0 @@
-package bar;
-
-import java.util.List;
-import java.util.Map;
-
-// 직원이 해야될 공통 행위 method interface
-public interface GangnamBar {
-	int menuCalc(List<Map<String, List<Map<String, Integer>>>> calc); // 받은 주문 계산 method
-}

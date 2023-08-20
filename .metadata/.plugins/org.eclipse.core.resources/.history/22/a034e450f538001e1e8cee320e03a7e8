@@ -1,9 +1,0 @@
-package bar;
-
-import bar.menu.Alcohol;
-import bar.menu.AlcoholSet;
-import bar.menu.DrinkDish;
-
-public interface GangnamBar {
-	int menuCalc(Alcohol al, DrinkDish drd, AlcoholSet alSet);
-}

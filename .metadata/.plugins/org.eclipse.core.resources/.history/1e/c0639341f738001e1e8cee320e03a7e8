@@ -1,5 +1,0 @@
-package bar.menu;
-
-public class Alcohol {
-	Map<String, Map<String, Integer>> alcohols;
-}

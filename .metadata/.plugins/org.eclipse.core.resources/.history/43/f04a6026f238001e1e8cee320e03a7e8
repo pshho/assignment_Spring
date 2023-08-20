@@ -1,7 +1,0 @@
-package bar.main;
-
-public class BarMain {
-	public static void main(String[] args) {
-		
-	}
-}
