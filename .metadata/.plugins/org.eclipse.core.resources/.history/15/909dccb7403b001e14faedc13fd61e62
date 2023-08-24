@@ -1,6 +1,0 @@
-package clothing.clothesParts;
-
-public class ClotheFoots {
-	String name;
-	int status;
-}

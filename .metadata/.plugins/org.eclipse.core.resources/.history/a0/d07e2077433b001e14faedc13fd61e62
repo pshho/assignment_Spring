@@ -1,5 +1,0 @@
-package clothing.clothesParts;
-
-public class ClotheFoots extends Clothes {
-
-}

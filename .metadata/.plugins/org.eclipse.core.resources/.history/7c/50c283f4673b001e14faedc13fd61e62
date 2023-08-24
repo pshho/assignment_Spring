@@ -1,7 +1,0 @@
-package persons_p;
-
-import persons_p.personParts.Place;
-
-public interface PersonTravel {
-	public Place place(String place);
-}

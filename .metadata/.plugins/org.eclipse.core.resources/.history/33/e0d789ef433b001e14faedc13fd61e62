@@ -1,5 +1,0 @@
-package clothing.clothesParts;
-
-public class ClotheBodyTop extends Clothes {
-	String kinds = "상의류";
-}

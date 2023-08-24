@@ -1,0 +1,14 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- 정렬 기능(이름별, 반별 등수, 전체 등수) -->
+<tr th:each="sd,i:${stdSide}">
+	<td width="350px" align="center">
+		<a th:href="@{'/students/templates/' + ${head} + '/' + ${sd.key}}" th:text="${sd.value}"></a>
+	</td>
+	<td th:if="${i.index==0}" rowspan="3" colspan="4" width="1050px">
+		<div th:if="${head eq 'view'}" align="center">
+			<p>학생 점수 정보 페이지</p>
+			<p>원하시는 메뉴를 상단에서 선택하세요</p>
+		</div>
+		<th:block th:replace="students/inc/stdMain" />
+	</td>
+</tr>

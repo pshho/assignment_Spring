@@ -1,6 +1,0 @@
-package clothing;
-
-public interface PersonClothes {
-	void putOnOff(boolean putOnOff);
-	void travel(int day, String place);
-}

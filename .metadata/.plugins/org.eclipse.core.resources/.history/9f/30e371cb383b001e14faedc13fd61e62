@@ -1,7 +1,0 @@
-package clothing.clothesParts;
-
-public class ClotheAccesory {
-	String name;
-	int status;
-	
-}

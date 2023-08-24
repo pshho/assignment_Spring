@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>students / view</title>
+</head>
+<body>
+	<h1>학생 점수 처리</h1>
+	<table border="">
+		<tr align="center">
+			<td th:replace="students/inc/stdHeader"></td>
+		</tr>
+		<th:block th:replace="students/inc/stdAside" />
+		<tr align="center">
+			<td th:colspan="${#maps.size(stdHeader)+1}">
+				<th:block layout:fragment="footer" />
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- 1반~3반, 점수입력 -->
+<td align="center">정렬</td>
+<td th:each="hd:${stdHeader}">
+	<a th:href="@{'/students/templates/' + ${hd.key}}" th:text="${hd.value}"></a>
+</td>

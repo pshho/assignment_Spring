@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorate="students/inc/view">
+<head>
+<meta charset="UTF-8">
+<title>students/template</title>
+<script type="text/javascript">
+	function clickHeader(){
+		let form = document.modify;
+		// alert("누름?");
+		form.action = "?";
+		form.submit();
+	}
+</script>
+</head>
+<body>
+	<h1>students/template</h1>
+	
+	<th:block layout:fragment="footer">
+		<p>내가 푸터여</p>
+	</th:block>
+	
+	<!--<table border="" align="center">
+		<tr>
+			 1반~3반, 점수입력 
+			<td align="center">정렬</td>
+			<td width="900px" align="center" th:each="arrH:${stdHeader}">
+				<a th:href="|?head=${arrH.url}&side=${session.side}|" th:text="${arrH.text}"></a>
+			</td>
+		</tr>
+		 정렬 기능(이름별, 반별 등수, 전체 등수) 
+		<tr th:each="arrS,i:${stdSide}">
+			<td width="350px" align="center">
+				<a th:href="|?side=${arrS.url}&head=${session.head}|" th:text="${arrS.text}"></a>
+			</td>
+			 메인페이지 
+			<td th:if="${i.index==0}" rowspan="3" colspan="4">
+				<div th:if="${head eq ''}" align="center">
+					<p>학생 점수 정보 페이지</p>
+					<p>원하시는 메뉴를 상단에서 선택하세요</p>
+				</div>
+				<table border="" th:if="${head ne '' and head ne 'modify'}" width="100%">
+					<tr align="center">
+						<td>이름</td>
+						<td>학급</td>
+						 과목들 
+						<td th:each="subj:${subjects}" th:text="${subj}"></td>
+						<td>총점</td>
+						<td>평균</td>
+						<td>학급 등수</td>
+						<td>전체 등수</td>
+						<td>등급</td>
+					</tr>
+					<tr align="center" th:each="std:${stdMain}">
+						<td th:text="${std.value.stdName}"></td>
+						<td th:text="${std.value.classes}"></td>
+						<td th:each="sub:${std.value.subjects.subScores}" th:text="${sub.value}"></td>
+						<td th:text="${std.value.sum}"></td>
+						<td th:text="${std.value.avg}"></td>
+						<td th:text="${std.value.classRank}"></td>
+						<td th:text="${std.value.totalRank}"></td>
+						<td th:text="${std.value.grade}"></td>
+					</tr>
+				</table>
+				<form action="templatesReg" th:if="${session.head eq 'modify' and head eq 'modify'}" name="modif">
+					<input type="hidden" name="head" th:value="${session.head}" />
+					<input type="hidden" name="side" th:value="${session.side}" />
+					<table border="" width="100%">
+						<tr>
+							<td th:colspan="${#arrays.length(subjects)+2}" align="right">
+								<select name="header" onchange="clickHeader()">
+									<option th:each="arrH:${stdHeader}" th:value="${arrH.text}" th:if="${arrH.url ne 'modify'}"
+										th:selected="${arrH.text eq header}" th:text="${arrH.text}"></option>
+								</select>
+							</td>
+						</tr>
+						<tr align="center">
+							<td>이름</td>
+							<td>학급</td>
+							<td th:each="subj:${subjects}" th:text="${subj}"></td>
+						</tr>
+						<tr th:each="std:${stdMain}">
+							<td><input type="text" th:name="|studentsData[${header}][${std.key}].stdName}|" th:value="${std.value.stdName}" readonly /></td>
+							<td><input type="text" th:name="|studentsData[${header}][${std.key}].classes}|" th:value="${std.value.classes}" readonly /></td>
+							<td th:each="sub:${std.value.subjects.subScores}">
+								<input type="text" th:name="|studentsData[${header}][${std.key}].subjects.subScores[${sub.key}]}|" th:value="${sub.value}" />
+							</td>
+						</tr>
+						<tr>
+							<td th:colspan="${#arrays.length(subjects)+2}" align="right">
+								<input type="submit" value="수정" />
+							</td>
+						</tr>
+					</table>
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" colspan="5" th:text="${stdFooter}"></td>
+		</tr>
+	</table>-->
+</body>
+</html>

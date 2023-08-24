@@ -1,5 +1,0 @@
-package clothing;
-
-public interface PersonClothes {
-
-}

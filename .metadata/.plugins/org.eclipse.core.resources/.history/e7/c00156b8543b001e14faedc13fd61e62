@@ -1,8 +1,0 @@
-package persons_p;
-
-import clothes_p.Bag;
-
-public interface PersonClothes {
-	public Bag putOnOff();
-	public void travel(int day, String place);
-}

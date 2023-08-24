@@ -1,6 +1,0 @@
-package clothing;
-
-public interface PersonClothes {
-	void putOn();
-	void go();
-}

@@ -1,0 +1,54 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- 메인페이지 -->
+<table border="" th:if="${head ne 'view' and head ne 'modify'}" width="100%">
+	<tr align="center">
+		<td>이름</td>
+		<td>학급</td>
+		<!-- 과목들 -->
+		<td th:each="subj:${subjs}" th:text="${subj.key}"></td>
+		<td>총점</td>
+		<td>평균</td>
+		<td>학급 등수</td>
+		<td>전체 등수</td>
+		<td>등급</td>
+	</tr>
+	<tr align="center" th:each="std:${stdMain}">
+		<td th:text="${std.value.stdName}"></td>
+		<td th:text="${std.value.classes}"></td>
+		<td th:each="sub:${std.value.subjects.subScores}" th:text="${sub.value}"></td>
+		<td th:text="${std.value.sum}"></td>
+		<td th:text="${std.value.avg}"></td>
+		<td th:text="${std.value.classRank}"></td>
+		<td th:text="${std.value.totalRank}"></td>
+		<td th:text="${std.value.grade}"></td>
+	</tr>
+</table>
+<form action="templatesReg" th:if="${head eq 'modify'}" name="modify" method="post">
+	<table border="" width="100%">
+		<tr>
+			<td th:colspan="${#maps.size(subjs)+2}" align="right">
+				<select name="header" onchange="clickHeader()">
+					<option th:each="hd:${stdHeader}" th:value="${hd.value}" th:if="${hd.key ne 'modify'}"
+						th:selected="${hd.value eq header}" th:text="${hd.value}"></option>
+				</select>
+			</td>
+		</tr>
+		<tr align="center">
+			<td>이름</td>
+			<td>학급</td>
+			<td th:each="subj:${subjs}" th:text="${subj.key}"></td>
+		</tr>
+		<tr th:each="std,i:${stdMain}">
+			<td><input type="text" th:name="|studentsList[${i.index}].stdName|" th:value="${std.value.stdName}" readonly /></td>
+			<td><input type="text" th:name="|studentsList[${i.index}].classes|" th:value="${std.value.classes}" readonly /></td>
+			<td th:each="sub:${std.value.subjects.subScores}">
+				<input type="text" th:name="|studentsList[${i.index}].subjects.subScores[${std.key}]|" th:value="${sub.value}" />
+			</td>
+		</tr>
+		<tr>
+			<td th:colspan="${#maps.size(subjs)+2}" align="right">
+				<input type="submit" value="수정" />
+			</td>
+		</tr>
+	</table>
+</form>

@@ -1,5 +1,0 @@
-package persons_p;
-
-public interface PersonTravel {
-	public void place(String place);
-}

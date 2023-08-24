@@ -6,7 +6,11 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
+		<item key="selection" value="하준"/>
 		<list key="findhistory">
+			<item value="하준"/>
+			<item value="totalRankCalc"/>
+			<item value="totalRankDistinct"/>
 			<item value="scores"/>
 		</list>
 		<list key="replacehistory">
