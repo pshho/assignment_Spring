@@ -23,10 +23,10 @@
 		<td th:text="${std.value.grade}"></td>
 	</tr>
 </table>
-<form action="templatesReg" th:if="${head eq 'modify'}" name="modify" method="post">
+<form action="temReg" th:if="${head eq 'modify'}" name="modify" method="post">
 	<table border="" width="100%">
 		<tr>
-			<td th:colspan="${#maps.size(subjs)+2}" align="right">
+			<td th:colspan="${#maps.size(subjs)+3}" align="right">
 				<select name="header" onchange="clickHeader()">
 					<option th:each="hd:${stdHeader}" th:value="${hd.value}" th:if="${hd.key ne 'modify'}"
 						th:selected="${hd.value eq header}" th:text="${hd.value}"></option>
@@ -36,17 +36,19 @@
 		<tr align="center">
 			<td>이름</td>
 			<td>학급</td>
+			<td>학번</td>
 			<td th:each="subj:${subjs}" th:text="${subj.key}"></td>
 		</tr>
 		<tr th:each="std,i:${stdMain}">
 			<td><input type="text" th:name="|studentsList[${i.index}].stdName|" th:value="${std.value.stdName}" readonly /></td>
 			<td><input type="text" th:name="|studentsList[${i.index}].classes|" th:value="${std.value.classes}" readonly /></td>
+			<td><input type="text" th:name="|studentsList[${i.index}].studentNum|" th:value="${std.value.studentNum}" readonly /></td>
 			<td th:each="sub:${std.value.subjects.subScores}">
-				<input type="text" th:name="|studentsList[${i.index}].subjects.subScores[${std.key}]|" th:value="${sub.value}" />
+				<input type="text" th:name="|studentsList[${i.index}].subjects.subScores[${sub.key}]|" th:value="${sub.value}" />
 			</td>
 		</tr>
 		<tr>
-			<td th:colspan="${#maps.size(subjs)+2}" align="right">
+			<td th:colspan="${#maps.size(subjs)+3}" align="right">
 				<input type="submit" value="수정" />
 			</td>
 		</tr>

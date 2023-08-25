@@ -1,6 +1,5 @@
 package aaa.control;
 
-import java.util.List;
 import java.util.TreeMap;
 
 import org.springframework.stereotype.Controller;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import aaa.schools.StdList;
 import aaa.schools.Student;
 import aaa.schools.StudentsList;
 import aaa.schools.Subjects;
@@ -131,15 +131,6 @@ public class StudentController {
 		return std;
 	}
 	
-	// 데이터 받아와 수정 작업을 하려 했지만 실패했습니다..
-	@PostMapping
-	List<Student> students(
-		List<Student> students
-		){
-		System.out.println(students.toString());
-		return students;
-	}
-	
 //	@ModelAttribute("stdFooter")
 //	Object stdFooter() {
 //		return "나는야 푸터";
@@ -164,6 +155,13 @@ public class StudentController {
 		// System.out.println(claStd);
 		// System.out.println(header);
 		// System.out.println(sider);
+		return "students/templates";
+	}
+	
+	// 데이터 받아와서 수정할 Method
+	@PostMapping("{head}")
+	String templatesReg(StdList studentsList) {
+		// System.out.println(studentsList);
 		return "students/templates";
 	}
 	
