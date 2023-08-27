@@ -1,0 +1,56 @@
+<html xmlns="http://www.thymeleaf.org">
+<h3>게시글 수정</h3>
+<form action="/board/BoModify" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="pid" th:value="${detail.pid}" />
+	<table border="" width="900px">
+		<tbody align="center">
+			<tr>
+				<td width="150px">제목</td>
+				<td>
+					<input type="text" name="title" th:value="${detail.title}" required />
+				</td>
+			</tr>
+			<tr>
+				<td>작성자</td>
+				<td>
+					<input type="text" name="writer" th:value="${detail.writer}" readonly />
+				</td>
+			</tr>
+			<tr>
+				<td>내용</td>
+				<td>
+					<textarea cols="70" rows="10" name="content" th:text="${detail.content}" required />
+				</td>
+			</tr>
+			<tr th:if="${detail.upfile ne ''}">
+				<td>파일 등록</td>
+				<td>
+					<a th:href="@{|modiDel|(pid=${detail.pid},upfile=${detail.upfile})}" 
+					th:text="|${detail.upfile} 삭제|"></a>
+				</td>
+			</tr>
+			<tr th:unless="${detail.upfile ne ''}">
+				<td>파일 등록</td>
+				<td>
+					<input type="file" name="mf" />
+				</td>
+			</tr>
+			<tr>
+				<td>암호</td>
+				<td>
+					<input type="text" name="pw" required />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right">
+					<input type="submit" value="수정" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right">
+					<a th:href="|/board/BoDetail/${detail.pid}|">뒤로</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>

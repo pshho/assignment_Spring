@@ -1,0 +1,42 @@
+<html xmlns="http://www.thymeleaf.org">
+<h3>게시글 상세보기</h3>
+<table border="" width="900px">
+	<tbody align="center">
+		<tr>
+			<td width="150px">제목</td>
+			<td th:text="${detail.title}"></td>
+			<td width="100px">조회수</td>
+			<td th:text="${detail.cnt}"></td>
+		</tr>
+		<tr>
+			<td>작성자</td>
+			<td th:text="${detail.writer}"></td>
+			<td>작성일</td>
+			<td th:text="${detail.reg_date2}" width="200px"></td>
+		</tr>
+		<tr>
+			<td>내용</td>
+			<td colspan="3" align="left">
+				<pre th:text="${detail.content}"></pre>
+			</td>
+		</tr>
+		<tr th:if="${detail.upfile ne ''}">
+			<td>등록 파일</td>
+			<td colspan="3" th:if="${detail.isImg}">
+				<img th:src="|/up/${detail.upfile}|" alt="등록한 이미지" />
+			</td>
+			<td colspan="3" th:unless="${detail.isImg}">
+				<a th:href="|BoDetail/${detail.pid}/${detail.upfile}|" 
+				th:text="${detail.upfile}"></a>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" align="right">
+				<a th:href="|/board/BoModify/${detail.pid}|">수정</a>
+				<a th:href="|/board/BoDelete/${detail.pid}|">삭제</a>
+				<a href="/board/BoList">뒤로</a>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<hr />

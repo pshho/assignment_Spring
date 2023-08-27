@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="하준"/>
+		<item key="selection" value="pid"/>
 		<list key="findhistory">
+			<item value="pid"/>
+			<item value="jdbc"/>
 			<item value="하준"/>
 			<item value="totalRankCalc"/>
 			<item value="totalRankDistinct"/>

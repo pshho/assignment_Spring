@@ -1,0 +1,48 @@
+<html xmlns="http://www.thymeleaf.org">
+<h3>게시글 작성</h3>
+<form action="/board/BoWrite" method="post" enctype="multipart/form-data" th:object="${boardDTO}">
+	<table border="" width="900px">
+		<tbody align="center">
+			<tr>
+				<td width="150px">제목</td>
+				<td>
+					<input type="text" th:field="*{title}" required />
+				</td>
+			</tr>
+			<tr>
+				<td>작성자</td>
+				<td>
+					<input type="text" th:field="*{writer}" required />
+				</td>
+			</tr>
+			<tr>
+				<td>내용</td>
+				<td colspan="3">
+					<textarea cols="70" rows="10" th:field="*{content}" required />
+				</td>
+			</tr>
+			<tr>
+				<td>파일 등록</td>
+				<td colspan="3">
+					<input type="file" th:field="*{mf}" />
+				</td>
+			</tr>
+			<tr>
+				<td>암호</td>
+				<td colspan="3">
+					<input type="text" th:field="*{pw}" required />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4" align="right">
+					<input type="submit" value="등록" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4" align="right">
+					<a href="/board/BoList">뒤로</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>

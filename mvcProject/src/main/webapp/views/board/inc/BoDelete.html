@@ -1,0 +1,23 @@
+<html xmlns="http://www.thymeleaf.org">
+<h3>게시글 삭제</h3>
+<form action="/board/BoDelete" method="post" th:object="${boardDTO}">
+	<input type="hidden" th:field="*{pid}" th:value="${detail.pid}" />
+	<table border="" width="900px">
+		<tbody align="center">
+			<tr>
+				<td width="150px">암호</td>
+				<td><input type="text" th:field="*{pw}" /></td>
+			</tr>
+			<tr>
+				<td colspan="4" align="right">
+					<input type="submit" value="삭제" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4" align="right">
+					<a th:href="|/board/BoDetail/${detail.pid}|">뒤로</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>

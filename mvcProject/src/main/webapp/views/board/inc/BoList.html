@@ -1,0 +1,37 @@
+<html xmlns="http://www.thymeleaf.org">
+<h3>게시판 목록</h3>
+<table border="" width="900px">
+	<thead>
+		<tr align="center">
+			<td>게시글 번호</td>
+			<td width="500px">제목</td>
+			<td>작성자</td>
+			<td>조회수</td>
+			<td>작성일</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="li:${#numbers.sequence(page.listStart, page.listEnd)}" 
+		align="center">
+			<td th:text="${list[li].pid}"></td>
+			<td><a th:href="|/board/BoDetail/${list[li].pid}|" th:text="${list[li].title}"></a></td>
+			<td th:text="${list[li].writer}"></td>
+			<td th:text="${list[li].cnt}"></td>
+			<td th:text="${list[li].reg_date2}"></td>
+		</tr>
+		<tr>
+			<td colspan="5" class="page" align="center">
+				<a th:href="|/board/BoList/${page.pageLJump}|"><</a>
+				<a th:each="pageNum:${#numbers.sequence(
+					(page.pageEnd eq page.endPage)?page.pageEnd-4:page.pageStart
+				, page.pageEnd)}"
+				th:href="|/board/BoList/${pageNum}|" th:text="${pageNum}">
+				</a>
+				<a th:href="|/board/BoList/${page.pageRJump}|">></a>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" colspan="5"><a href="BoWrite">글작성</a></td>
+		</tr>
+	</tbody>
+</table>

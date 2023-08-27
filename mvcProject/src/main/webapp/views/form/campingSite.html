@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>campingSite</title>
+<script src="https://code.jquery.com/jquery-3.7.0.js"
+integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/campingSiteForm.css" />
+<script>
+	$(document).ready(function(){
+		
+		$('#addSites').on(function(){
+			
+		});
+	});
+</script>
+</head>
+<body>
+	<div class="container">
+		<h1>campingSite</h1>
+		<form action="campingReg" method="post" th:object="${camping}" name="siteForm">
+			<table>
+				<tr>
+					<td colspan="3" align="right">
+						<select name="">
+							<option th:each="site:*{sitesArray}" 
+							th:text="${site}" th:value="${site}">
+							</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>캠핑장명</td>
+					<td colspan="2">
+						<input type="text" th:field="*{campName}" />
+						<div th:if="${#fields.hasErrors('campName')}" 
+						th:errors="*{campName}" class="error" />
+					</td>
+				</tr>
+				<tr>
+					<td>사업자번호</td>
+					<td colspan="2">
+						<input type="text" th:field="*{campBusinessNum}"
+						placeholder="숫자만 입력하세요" />
+						<div th:if="${#fields.hasErrors('campBusinessNum')}" 
+						th:errors="*{campBusinessNum}" class="error" />
+					</td>
+				</tr>
+				<tr>
+					<td>사이트 종류</td>
+					<td colspan="2">
+						<label for="siteType">타입</label>
+						<input type="text" id="siteType" placeholder="타입 A, B, C or 대, 중, 소"
+						 class="tp" th:field="*{siteType}" />
+						<div th:if="${#fields.hasErrors('siteType')}" 
+						th:errors="*{siteType}" class="error" />
+					</td>
+				</tr>
+				<tr>
+					<td rowspan="3">크기</td>
+					<tr>
+						<td class="notCenter">가로</td>
+						<td>세로</td>
+					</tr>
+					<tr>
+						<td class="notCenter">
+							<input type="text" th:field="*{minSize}" />
+							<div th:if="${#fields.hasErrors('minSize')}" 
+							th:errors="*{minSize}" class="error" />
+						</td>
+						<td>
+							<input type="text" th:field="*{maxSize}" />
+							<div th:if="${#fields.hasErrors('maxSize')}" 
+							th:errors="*{maxSize}" class="error" />
+							
+						</td>
+					</tr>
+				</tr>
+				<tr>
+					<td rowspan="3">인원</td>
+					<tr>
+						<td class="num notCenter">최소인원</td>
+						<td class="num">최대인원</td>
+					</tr>
+					<tr>
+						<td class="notCenter">
+							<input type="text" th:field="*{minPerson}" />
+							<div th:if="${#fields.hasErrors('minPerson')}" 
+							th:errors="*{minPerson}" class="error" />
+						</td>
+						<td>
+							<input type="text" th:field="*{maxPerson}" />
+							<div th:if="${#fields.hasErrors('maxPerson')}" 
+							th:errors="*{maxPerson}" class="error" />
+						</td>
+					</tr>
+				</tr>
+				<tr>
+					<td>수량</td>
+					<td colspan="2">
+						<input type="text" th:field="*{siteTot}" />
+						<div th:if="${#fields.hasErrors('siteTot')}" 
+						th:errors="*{siteTot}" class="error" />
+					</td>
+				</tr>
+				<tr>
+					<td>입/퇴실 시간</td>
+					<td colspan="2">
+						<input type="time" 
+						th:field="*{checkIn}" /> - <input type="time" 
+						th:field="*{checkOut}" />
+						<div th:if="${#fields.hasErrors('checkIn')}" 
+							th:errors="*{checkIn}" class="error" />
+						<div th:if="${#fields.hasErrors('checkOut')}" 
+							th:errors="*{checkOut}" class="error" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" align="right">
+						<input type="submit" value="등록" />
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
