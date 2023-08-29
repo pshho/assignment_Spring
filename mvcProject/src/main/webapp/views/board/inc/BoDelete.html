@@ -1,7 +1,8 @@
 <html xmlns="http://www.thymeleaf.org">
 <h3>게시글 삭제</h3>
 <form action="/board/BoDelete" method="post" th:object="${boardDTO}">
-	<input type="hidden" th:field="*{pid}" th:value="${detail.pid}" />
+	<input type="hidden" th:field="*{pid}" th:value="${pid}" />
+	<input type="hidden" name="upfile" th:value="${detail.upfile}" />
 	<table border="" width="900px">
 		<tbody align="center">
 			<tr>
@@ -15,7 +16,7 @@
 			</tr>
 			<tr>
 				<td colspan="4" align="right">
-					<a th:href="|/board/BoDetail/${detail.pid}|">뒤로</a>
+					<a th:href="|/board/BoDetail/${pid}|">뒤로</a>
 				</td>
 			</tr>
 		</tbody>

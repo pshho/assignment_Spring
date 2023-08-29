@@ -6,9 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.DataSource;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lombok.Data;
@@ -25,8 +22,8 @@ public class BoardDAO {
 	
 	// application.yaml에 입력한 데이터베이스 연결 정보를 바탕으로 만들어진
 	// DataSource를 bean으로 당겨옴
-	@Autowired
-	DataSource dataSource;
+//	@Autowired
+//	DataSource dataSource;
 	
 	// 연결 닫기
 	public void close() {
@@ -41,7 +38,7 @@ public class BoardDAO {
 		List<BoardDTO> bList = new ArrayList<>();
 		
 		try {
-			con = dataSource.getConnection();
+			//con = dataSource.getConnection();
 			ptmt = con.prepareStatement(sql);
 			rs = ptmt.executeQuery();
 			
@@ -53,7 +50,7 @@ public class BoardDAO {
 				bDto.setPw(rs.getString("pw"));
 				bDto.setUpfile(rs.getString("upfile"));
 				bDto.setContent(rs.getString("content"));
-				bDto.setReg_date(rs.getTimestamp("reg_date"));
+				bDto.setRegDate(rs.getTimestamp("reg_date"));
 				bDto.setCnt(rs.getInt("cnt"));
 				bDto.setSeq(rs.getInt("seq"));
 				bDto.setLev(rs.getInt("lev"));
@@ -75,7 +72,7 @@ public class BoardDAO {
 		sql = "select * from board where pid = ?";
 		
 		try {
-			con = dataSource.getConnection();
+			//con = dataSource.getConnection();
 			ptmt = con.prepareStatement(sql);
 			ptmt.setInt(1, pid);
 			rs = ptmt.executeQuery();
@@ -88,7 +85,7 @@ public class BoardDAO {
 				bDto.setPw(rs.getString("pw"));
 				bDto.setUpfile(rs.getString("upfile"));
 				bDto.setContent(rs.getString("content"));
-				bDto.setReg_date(rs.getTimestamp("reg_date"));
+				bDto.setRegDate(rs.getTimestamp("reg_date"));
 				bDto.setCnt(rs.getInt("cnt"));
 				bDto.setSeq(rs.getInt("seq"));
 				bDto.setLev(rs.getInt("lev"));
@@ -110,7 +107,7 @@ public class BoardDAO {
 				+ "values(?, ?, ?, ?, ?, 0, 0, 0, 0)";
 		
 		try {
-			con = dataSource.getConnection();
+			//con = dataSource.getConnection();
 			ptmt = con.prepareStatement(sql);
 			ptmt.setString(1, bDto.getTitle());
 			ptmt.setString(2, bDto.getWriter());
@@ -130,7 +127,7 @@ public class BoardDAO {
 		sql = "update board set cnt = cnt + 1 where pid = ?";
 		
 		try {
-			con = dataSource.getConnection();
+			//con = dataSource.getConnection();
 			ptmt = con.prepareStatement(sql);
 			ptmt.setInt(1, pid);
 			ptmt.executeUpdate();
@@ -147,7 +144,7 @@ public class BoardDAO {
 		boolean ck = false;
 		
 		try {
-			con = dataSource.getConnection();
+			//con = dataSource.getConnection();
 			ptmt = con.prepareStatement(sql);
 			ptmt.setInt(1, bDto.getPid());
 			ptmt.setString(2, bDto.getPw());
@@ -169,7 +166,7 @@ public class BoardDAO {
 		sql = "delete from board where pid = ?";
 		
 		try {
-			con = dataSource.getConnection();
+			//con = dataSource.getConnection();
 			ptmt = con.prepareStatement(sql);
 			ptmt.setInt(1, bDto.getPid());
 			ptmt.executeUpdate();
@@ -185,7 +182,7 @@ public class BoardDAO {
 		sql = "update board set title = ?, content = ?, upfile = ? where pid = ?";
 		
 		try {
-			con = dataSource.getConnection();
+			//con = dataSource.getConnection();
 			ptmt = con.prepareStatement(sql);
 			ptmt.setString(1, bDto.getTitle());
 			ptmt.setString(2, bDto.getContent());
@@ -204,7 +201,7 @@ public class BoardDAO {
 		sql = "update board set upfile = '' where pid = ?";
 		
 		try {
-			con = dataSource.getConnection();
+			//con = dataSource.getConnection();
 			ptmt = con.prepareStatement(sql);
 			ptmt.setInt(1, bDto.getPid());
 			ptmt.executeUpdate();
@@ -221,7 +218,7 @@ public class BoardDAO {
 		int res = 0;
 		
 		try {
-			con = dataSource.getConnection();
+			//con = dataSource.getConnection();
 			ptmt = con.prepareStatement(sql);
 			rs = ptmt.executeQuery();
 			

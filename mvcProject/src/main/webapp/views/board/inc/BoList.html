@@ -11,27 +11,40 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr th:each="li:${#numbers.sequence(page.listStart, page.listEnd)}" 
+		<tr th:each="li,stat:${#numbers.sequence(page.listStart, page.listEnd)}" 
 		align="center">
-			<td th:text="${list[li].pid}"></td>
-			<td><a th:href="|/board/BoDetail/${list[li].pid}|" th:text="${list[li].title}"></a></td>
+			<td th:text="${page.pageIndex-stat.index}"></td>
+			<td align="left">
+				<th:block th:if="${list[li].lev ne 0}"
+				th:each="re:${#numbers.sequence(1, list[li].lev)}">
+				<span>&nbsp;</span></th:block>
+				<th:block th:if="${list[li].lev ne 0}"
+				th:each="re:${#numbers.sequence(1, list[li].lev)}">
+				<span>└</span></th:block>
+				<a th:href="|/board/BoDetail/${list[li].pid}|" 
+				th:text="${list[li].title}"></a>
+			</td>
 			<td th:text="${list[li].writer}"></td>
 			<td th:text="${list[li].cnt}"></td>
-			<td th:text="${list[li].reg_date2}"></td>
+			<td th:text="${list[li].regDate2}"></td>
 		</tr>
 		<tr>
 			<td colspan="5" class="page" align="center">
+				<a href="/board/BoList/1"><<</a>
 				<a th:href="|/board/BoList/${page.pageLJump}|"><</a>
 				<a th:each="pageNum:${#numbers.sequence(
-					(page.pageEnd eq page.endPage)?page.pageEnd-4:page.pageStart
+				(page.pageEnd eq page.endPage)?page.pageEnd-4:page.pageStart
 				, page.pageEnd)}"
-				th:href="|/board/BoList/${pageNum}|" th:text="${pageNum}">
+				th:href="|/board/BoList/${pageNum}|"
+				th:text="|${(page.pageStart eq pageNum) ? '[' + pageNum + ']' : pageNum}|"
+				>
 				</a>
 				<a th:href="|/board/BoList/${page.pageRJump}|">></a>
+				<a th:href="|/board/BoList/${page.endPage}|">>></a>
 			</td>
 		</tr>
 		<tr>
-			<td align="right" colspan="5"><a href="BoWrite">글작성</a></td>
+			<td align="right" colspan="5"><a href="/board/BoWrite">글작성</a></td>
 		</tr>
 	</tbody>
 </table>

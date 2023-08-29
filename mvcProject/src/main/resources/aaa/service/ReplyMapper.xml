@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC ".//mybatis.org/DTD Mapper3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="aaa.service.ReplyMapper">
+	<select id="reList" resultType="rDto" parameterType="Integer">
+		select * from reply where gpid = #{pid} order by gid desc
+	</select>
+	<insert id="insertReply" parameterType="rDto">
+		insert into reply(content, re_writer, seq, lev, gid, gpid)
+		values(#{content}, #{reWriter}, 0, 0, #{gid}, #{gpid})
+	</insert>
+	<select id="maxRePid">
+		select max(repid) from reply
+	</select>
+	<update id="updateReply" parameterType="rDto">
+		update reply set content = #{content} where repid = #{repid}
+	</update>
+	<select id="reDetail" parameterType="Integer">
+		select * from reply where repid = #{repid}
+	</select>
+	<delete id="deleteReply" parameterType="Integer">
+		delete from reply where repid = #{repid}
+	</delete>
+	<update id="updateReSeq" parameterType="rDto">
+		update reply set seq = seq + 1 where repid = #{repid} and seq &gt; #{seq}
+	</update>
+	<insert id="">
+		insert into reply(content, re_writer, seq, lev, gid, gpid)
+		values(#{content}, #{reWriter}, #{seq}, #{lev}, #{gid}, #{gpid})
+	</insert>
+</mapper>

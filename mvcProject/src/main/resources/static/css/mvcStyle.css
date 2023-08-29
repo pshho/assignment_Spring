@@ -1,0 +1,102 @@
+@charset "UTF-8";
+h1 {
+	width: 1000px;
+	margin: 0 auto;
+}
+table {
+	margin: 0 auto;
+}
+input:not(input[type=submit]):not(input[type=button]) {
+	width: 750px;
+}
+textarea {
+	width: 750px;
+	resize: none;
+}
+img {
+	width: 500px;
+	height: 300px;
+}
+.page > a {
+	margin: 20px;
+}
+tr > td > div > h4 {
+	padding-left: 10px;
+}
+.replyTd {
+	width: 100%;
+}
+textarea {
+	margin-top: 10px;
+	padding: 5px 8px;
+	resize: none;
+	border-radius: 10px;
+}
+tr > td > input[type=button] {
+	display: block;
+	width: 70px;
+	margin: 10px 0;
+	background: white;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.comments {
+	text-align: center;
+}
+.comments span {
+	display: block;
+	text-align: left;
+	padding: 5px 0;
+	font-size: 0.8rem;
+}
+ul > li {
+	list-style: none;
+	border-bottom: 1px solid rgb(128, 128, 128);
+}
+ul > li > p {
+	padding: 0 10px;
+	text-align: left;
+}
+ul > li > p > i {
+	display: block;
+	text-align: right;
+	font-style: normal;
+}
+ul > li > p > i > input[type=button] {
+	margin: 0px 5px;
+	padding: 5px 10px;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.comments div {
+	display: inline-block;
+	margin: 0 5px 10px 5px;
+}
+ul > li > input[type=button] {
+	display: block;
+	width: 70px;
+	margin: 10px auto;
+	background: white;
+	border-radius: 10px;
+	cursor: pointer;
+}
+ul.commentsOn {
+	display: none;
+}
+.onComments > p {
+	padding-left: 50px;
+	cursor: pointer;
+}
+ul > li > p:last-of-type > input[type=button] {
+	display: block;
+	width: 70px;
+	margin: 10px auto;
+	background: white;
+	border-radius: 10px;
+	cursor: pointer;
+}
+ul > li > p:last-of-type > textarea {
+	width: 95%;
+}

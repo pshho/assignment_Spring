@@ -2,25 +2,32 @@ package aaa.model;
 
 import org.springframework.stereotype.Component;
 
+import aaa.service.BoardMapper;
 import jakarta.annotation.Resource;
 import lombok.Data;
 
 @Component
 @Data
 public class PageMapping {
+	@Resource
+	BoardMapper mapper;
+	
+	String url, msg;
 	int pageStart, pageEnd, totalPage, endPage, listStart, listEnd;
 	int pageLJump, pageRJump;
-	int pageLimit = 5;
+	int pageLimit;
+	int pageIndex;
 	
-	@Resource
-	BoardDAO bDao;
+	public int getPageLimit() {
+		return mapper.maxSeq() + mapper.countSeq() + 1;
+	}
 
 	// 마지막 페이지 번호
 	public int getEndPage() {
-		if(getTotalPage() % pageLimit != 0) {
-			endPage = getTotalPage()/pageLimit + 1;
+		if(getTotalPage() % getPageLimit() != 0) {
+			endPage = getTotalPage()/getPageLimit() + 1;
 		}else {
-			endPage = getTotalPage()/pageLimit;
+			endPage = getTotalPage()/getPageLimit();
 		}
 		
 		return endPage;
@@ -41,19 +48,19 @@ public class PageMapping {
 
 	// 전체 게시글 개수
 	public int getTotalPage() {
-		totalPage = bDao.totalPage();
+		totalPage = mapper.totalPage();
 		return totalPage;
 	}
 
 	// 게시글 인덱스 시작 번호
 	public int getListStart() {
-		listStart = (pageStart - 1) * pageLimit;
+		listStart = (pageStart - 1) * getPageLimit();
 		return listStart;
 	}
 
 	// 게시글 인덱스 끝 번호
 	public int getListEnd() {
-		listEnd = listStart + 4;
+		listEnd = listStart + getPageLimit() - 1;
 		
 		if(pageStart == getEndPage()) {
 			listEnd = getTotalPage() - 1;
@@ -81,5 +88,10 @@ public class PageMapping {
 		}
 		
 		return pageRJump;
+	}
+
+	public int getPageIndex() {
+		pageIndex = getTotalPage() - ((pageStart-1)*getPageLimit());
+		return pageIndex;
 	}
 }

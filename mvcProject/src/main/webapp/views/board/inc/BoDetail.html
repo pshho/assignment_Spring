@@ -12,7 +12,7 @@
 			<td>작성자</td>
 			<td th:text="${detail.writer}"></td>
 			<td>작성일</td>
-			<td th:text="${detail.reg_date2}" width="200px"></td>
+			<td th:text="${detail.regDate2}" width="200px"></td>
 		</tr>
 		<tr>
 			<td>내용</td>
@@ -26,14 +26,28 @@
 				<img th:src="|/up/${detail.upfile}|" alt="등록한 이미지" />
 			</td>
 			<td colspan="3" th:unless="${detail.isImg}">
-				<a th:href="|BoDetail/${detail.pid}/${detail.upfile}|" 
+				<a th:href="|/board/BoDetail/${detail.pid}/${detail.upfile}|" 
 				th:text="${detail.upfile}"></a>
 			</td>
 		</tr>
 		<tr>
+			<td colspan="4" class="replyTd">
+				<textarea cols="40" rows="5" id="content"
+				placeholder="댓글을 남겨보세요"></textarea>
+				<input type="button" value="등록" onclick="saveComments()" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4" align="left">
+				<div class="comments"></div>
+				<div class="onComments" onclick="clickComments()"></div>
+			</td>
+		</tr>
+		<tr>
 			<td colspan="4" align="right">
-				<a th:href="|/board/BoModify/${detail.pid}|">수정</a>
-				<a th:href="|/board/BoDelete/${detail.pid}|">삭제</a>
+				<a th:href="|/board/BoReply/${pid}|">답글</a>
+				<a th:href="|/board/BoModify/${pid}|">수정</a>
+				<a th:href="|/board/BoDelete/${pid}|">삭제</a>
 				<a href="/board/BoList">뒤로</a>
 			</td>
 		</tr>

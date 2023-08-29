@@ -5,29 +5,207 @@ layout:decorate="board/inc/view">
 <head>
 <meta charset="UTF-8">
 <title>Board</title>
-<style>
-	h1 {
-		width: 1000px;
-		margin: 0 auto;
+<link rel="stylesheet" href="/css/mvcStyle.css" />
+<script src="https://code.jquery.com/jquery-3.7.1.js" 
+integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
+crossorigin="anonymous"></script>
+<script>
+	function saveComments(){
+		let content = $('#content').val();
+		let gpid = [[${detail.pid}]];
+		let writer = 'abcd';
+		
+		// console.log(content);
+		// console.log(gpid);
+		// console.log(writer);
+		
+		let params = {
+			content: content,
+			gpid: gpid,
+			reWriter: writer
+		};
+		
+		// console.log(params);
+		
+		$.ajax({
+			url : '/board/BoDetail/[[${pid}]]/comments',
+			type : 'post',
+			contentType : 'application/json; charset=utf-8',
+			dataType : 'json',
+			data : JSON.stringify(params),
+			async : false,
+			success : function(res) {
+				// console.log(response);
+				alert(res.msg);
+				$('#content').val('');
+				listComments();
+			},
+			error : function (req, status, error) {
+				console.log(req);
+				console.log(status);
+				console.log(error);
+			}
+		})
 	}
-	table {
-		margin: 0 auto;
+	
+	window.onload = () => {
+		listComments();
 	}
-	input:not(input[type=submit]) {
-		width: 750px;
+	
+	function listComments(){
+		$.ajax({
+			url : '/board/BoDetail/[[${pid}]]/comments',
+			type : 'get',
+			dataType : 'json',
+			async : false,
+			success : function (res) {
+				// console.log('받음?');
+				// console.log(response);
+				$('.comments').empty();
+				$('.comments').append('<h3>댓글</h3>');
+				res.forEach((row, i) => {
+					// console.log(row.reWriter);
+					if(res.length <= 0){
+						return;
+					}
+					
+					if(i>4){
+						$('.comments')
+						.append('<ul class="commentsOn"><li id="comm' + row.repid + '">' + '<span>작성자: ' + row.reWriter +
+						'</span><span>' + row.reRegDate2 + '</span><p>' + row.content + '<i>' +
+						'<input type="button" onclick="openReplyComments(' + row.repid + ')" value="대댓글" >' +
+						'<input type="button" onclick="openUpdateComments(' + row.repid + ')" value="수정" >' +
+						'<input type="button" onclick="confirmDelete(' + row.repid + ')" value="삭제" ></i></p></li></ul>');
+					}else {
+						$('.comments')
+						.append('<ul><li id="comm' + row.repid + '">' + '<span>작성자: ' + row.reWriter +
+						'</span><span>' + row.reRegDate2 + '</span><p>' + row.content + '<i>' +
+						'<input type="button" onclick="openReplyComments(' + row.repid + ')" value="대댓글" >' +
+						'<input type="button" onclick="openUpdateComments(' + row.repid + ')" value="수정" >' +
+						'<input type="button" onclick="confirmDelete(' + row.repid + ')" value="삭제" ></i></p></li></ul>');
+					}
+				});
+				if(res.length>5){
+					$('.onComments').append('<p>다음 댓글 보기</p>')
+				}
+				
+			},
+			error : function (req, status, error) {
+				console.log(req);
+				console.log(status);
+				console.log(error);
+			}
+		})
 	}
-	textarea {
-		width: 750px;
-		resize: none;
+	
+	function openUpdateComments(repid) {
+		$.ajax({
+			url : '/board/BoDetail/[[${detail.pid}]]/comments/'+repid,
+			type : 'get',
+			dataType : 'json',
+			async : false,
+			success : function(res) {
+				$('#comm'+repid+'').html(
+					'<span>' + res.reWriter + '</span><span>' + res.reRegDate2 +
+					'</span>' + '<textarea cols="20" rows="3" id="updateComments"' +
+					'placeholder="' + res.content + '"></textarea><input type="button"' +
+					'value="수정" onclick="updateComments(' + repid +')">'
+				);
+			},
+			error : function (req, status, error) {
+				console.log(req);
+				console.log(status);
+				console.log(error);
+			}
+		})
 	}
-	img {
-		width: 500px;
-		height: 300px;
+	
+	function updateComments(repid) {
+		let content = $('#updateComments').val();
+		
+		let params = {
+			content : content
+		}
+		
+		$.ajax({
+			url : '/board/BoDetail/[[${detail.pid}]]/comments/'+repid,
+			type : 'post',
+			contentType : 'application/json; charset=utf-8',
+			dataType : 'json',
+			data : JSON.stringify(params),
+			async : false,
+			success : function(res) {
+				// console.log(response);
+				alert(res.msg);
+				listComments();
+			},
+			error : function (req, status, error) {
+				console.log(req);
+				console.log(status);
+				console.log(error);
+			}
+		})
 	}
-	.page > a {
-		margin: 20px;
+	
+	function confirmDelete(repid){
+		if(confirm('정말 삭제하시겠습니까?')){
+			deleteComments(repid);
+		}
 	}
-</style>
+	
+	function deleteComments(repid){
+		let params = {
+			repid : repid
+		}
+		
+		$.ajax({
+			url : '/board/BoDetail/[[${detail.pid}]]/comments/delete/'+repid,
+			type : 'post',
+			dataType : 'json',
+			data : JSON.stringify(params),
+			async : false,
+			success : function(res) {
+				alert(res.msg);
+				listComments();
+			},
+			error : function (req, status, error) {
+				console.log(req);
+				console.log(status);
+				console.log(error);
+			}
+		})
+	}
+	
+	function clickComments() {
+		$('.onComments').css('display', 'none');
+		$('ul.commentsOn').css('display', 'block');
+	}
+	
+	function openReplyComments(repid) {
+		$.ajax({
+			url : '/board/BoDetail/[[${detail.pid}]]/comments/reply/'+repid,
+			type : 'get',
+			dataType : 'json',
+			async : false,
+			success : function(res) {
+			$('#comm'+repid+'').html(
+			'<span>작성자: ' + res.reWriter +
+			'</span><span>' + res.reRegDate2 + '</span><p>' + res.content + '<i>' +
+			'<input type="button" onclick="openReplyComments(' + res.repid + ')" value="대댓글" >' +
+			'<input type="button" onclick="openUpdateComments(' + res.repid + ')" value="수정" >' +
+			'<input type="button" onclick="confirmDelete(' + res.repid + ')" value="삭제" ></i></p>' +
+			'<p><textarea cols="20" rows="3" id="replyComments"' +
+			'placeholder="대댓글을 다세요"></textarea><input type="button"' +
+			'value="등록" onclick="replyComments(' + repid +')"></p>');
+			},
+			error : function (req, status, error) {
+				console.log(req);
+				console.log(status);
+				console.log(error);
+			}
+		})
+	}
+</script>
 </head>
 <body>
 	<h1>Board</h1>

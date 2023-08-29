@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC ".//mybatis.org/DTD Mapper3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="aaa.service.BoardMapper">
+	<select id="list" resultType="bDto">
+		select * from board order by rid desc, seq
+	</select>
+	<select id="detail" resultType="bDto">
+		select * from board where pid = #{pid}
+	</select>
+	<insert id="insert" parameterType="bDto">
+		insert into board(title, writer, pw, content, upfile, cnt, seq, lev, rid)
+		values(#{title}, #{writer}, #{pw}, #{content}, #{upfile}, 0, 0, 0, #{rid})
+	</insert>
+	<delete id="delete" parameterType="bDto">
+		delete from board where pid = #{pid} and pw = #{pw}
+	</delete>
+	<update id="modify" parameterType="bDto">
+		update board set title = #{title}, content = #{content}, upfile = #{upfile}
+		where pid = #{pid} and pw = #{pw}
+	</update>
+	<update id="cntUp" parameterType="Integer">
+		update board set cnt = cnt + 1 where pid = #{pid}
+	</update>
+	<select id="totalPage" resultType="Integer">
+		select count(*) from board
+	</select>
+	<select id="maxPid" resultType="Integer">
+		select max(pid) from board
+	</select>
+	<update id="fileDelete" parameterType="bDto">
+		update board set upfile = "" where pid = #{pid}
+	</update>
+	<insert id="insertReply" parameterType="bDto">
+		insert into board(title, writer, pw, content, cnt, seq, lev, rid)
+		values(#{title}, #{writer}, #{pw}, #{content}, 0, #{seq}, #{lev}, #{rid})
+	</insert>
+	<update id="updateSeq" parameterType="bDto">
+		update board set seq = seq + 1 where rid = #{rid} and seq &gt; #{seq}
+	</update>
+	<select id="maxSeq" resultType="Integer">
+		select max(seq) from board
+	</select>
+	<select id="countSeq" resultType="Integer">
+		select count(*) from board where pid > 
+		(select pid from board where seq = 
+		(select max(seq) from board))
+	</select>
+</mapper>

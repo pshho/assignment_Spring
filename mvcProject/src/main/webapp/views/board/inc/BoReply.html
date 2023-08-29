@@ -1,0 +1,45 @@
+<html xmlns="http://www.thymeleaf.org">
+<h3>게시글 답글</h3>
+<form action="/board/BoReply" method="post" th:object="${boardDTO}">
+	<table border="" width="900px">
+		<input type="hidden" name="rid" th:value="${detail.rid}" />
+		<input type="hidden" name="seq" th:value="${detail.seq+1}" />
+		<input type="hidden" name="lev" th:value="${detail.lev+1}" />
+		<tbody align="center">
+			<tr>
+				<td width="150px">제목</td>
+				<td>
+					<input type="text" name="title" th:value="|[${detail.title}]|" required />
+				</td>
+			</tr>
+			<tr>
+				<td>작성자</td>
+				<td>
+					<input type="text" th:field="*{writer}" required />
+				</td>
+			</tr>
+			<tr>
+				<td>내용</td>
+				<td>
+					<textarea cols="70" rows="10" th:field="*{content}" required />
+				</td>
+			</tr>
+			<tr>
+				<td>암호</td>
+				<td>
+					<input type="text" th:field="*{pw}" required />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right">
+					<input type="submit" value="작성" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right">
+					<a th:href="|/board/BoDetail/${pid}|">뒤로</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</form>
