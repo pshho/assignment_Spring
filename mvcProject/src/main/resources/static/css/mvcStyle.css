@@ -82,10 +82,16 @@ ul > li > input[type=button] {
 	border-radius: 10px;
 	cursor: pointer;
 }
-ul.commentsOn {
+.commentsOn,
+.comments > .commsOn {
 	display: none;
 }
+.onComments {
+	display: block;
+	height: 50px;
+}
 .onComments > p {
+	display: block;
 	padding-left: 50px;
 	cursor: pointer;
 }
@@ -99,4 +105,10 @@ ul > li > p:last-of-type > input[type=button] {
 }
 ul > li > p:last-of-type > textarea {
 	width: 95%;
+}
+.comments > .comm {
+	display: block;
+	float: left;
+	height: 100px;
+	margin-right: 55px;
 }

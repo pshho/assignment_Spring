@@ -15,12 +15,8 @@ public class PageMapping {
 	String url, msg;
 	int pageStart, pageEnd, totalPage, endPage, listStart, listEnd;
 	int pageLJump, pageRJump;
-	int pageLimit;
+	int pageLimit = 10;
 	int pageIndex;
-	
-	public int getPageLimit() {
-		return mapper.maxSeq() + mapper.countSeq() + 1;
-	}
 
 	// 마지막 페이지 번호
 	public int getEndPage() {

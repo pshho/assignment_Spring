@@ -122,9 +122,10 @@ public class BoardController {
 			PageMapping pmp) {
 		System.out.println(bDto);
 		mapper.updateSeq(bDto);
+		bDto.setSeq(bDto.getSeq()+1);
 		mapper.insertReply(bDto);
-		pmp.setMsg("게시글 작성");
-		pmp.setUrl("BoList");
+		pmp.setMsg("게시글 답글 작성");
+		pmp.setUrl("BoDetail/" + mapper.maxPid());
 		return "board/inc/alert";
 	}
 	

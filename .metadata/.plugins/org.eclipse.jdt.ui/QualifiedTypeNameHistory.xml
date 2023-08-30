@@ -28,7 +28,6 @@
     <fullyQualifiedTypeName name="jakarta.validation.constraints.Pattern"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.Size"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
-    <fullyQualifiedTypeName name="ch.qos.logback.core.recovery.ResilientSyslogOutputStream"/>
     <fullyQualifiedTypeName name="aaa.service.CampingChk"/>
     <fullyQualifiedTypeName name="aaa.model.AlertPage"/>
     <fullyQualifiedTypeName name="aaa.model.FileUploadDownload"/>
@@ -57,7 +56,8 @@
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="ch.qos.logback.core.recovery.ResilientSyslogOutputStream"/>
 </qualifiedTypeNameHistroy>

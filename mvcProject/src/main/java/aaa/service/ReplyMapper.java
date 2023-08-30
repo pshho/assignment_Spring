@@ -14,6 +14,6 @@ public interface ReplyMapper {
 	void updateReply(ReplyDTO rDto);
 	ReplyDTO reDetail(int repid);
 	void deleteReply(int repid);
-	void updateReSeq(ReplyDTO rDto);
 	void insertReReply(ReplyDTO rDto);
+	void updateReSeq(ReplyDTO rDto);
 }

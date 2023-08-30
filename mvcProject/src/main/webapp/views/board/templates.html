@@ -70,24 +70,28 @@ crossorigin="anonymous"></script>
 					}
 					
 					if(i>4){
-						$('.comments')
-						.append('<ul class="commentsOn"><li id="comm' + row.repid + '">' + '<span>작성자: ' + row.reWriter +
+						for(j=0; j<row.lev; j++){
+							$('.comments')
+							.append('<div class="commsOn"></div>');
+						}
+						$('.comments').append('<ul class="commentsOn"><li id="comm' + row.repid + '">' + '<span>작성자: ' + row.reWriter +
 						'</span><span>' + row.reRegDate2 + '</span><p>' + row.content + '<i>' +
-						'<input type="button" onclick="openReplyComments(' + row.repid + ')" value="대댓글" >' +
+						'<input type="button" onclick="openReplyComments(' + row.repid + ')" value="답글" >' +
 						'<input type="button" onclick="openUpdateComments(' + row.repid + ')" value="수정" >' +
 						'<input type="button" onclick="confirmDelete(' + row.repid + ')" value="삭제" ></i></p></li></ul>');
 					}else {
-						$('.comments')
-						.append('<ul><li id="comm' + row.repid + '">' + '<span>작성자: ' + row.reWriter +
+						for(j=0; j<row.lev; j++){
+							$('.comments')
+							.append('<div class="comm"></div>');
+						}
+						$('.comments').append('<ul><li id="comm' + row.repid + '">' + '<span>작성자: ' + row.reWriter +
 						'</span><span>' + row.reRegDate2 + '</span><p>' + row.content + '<i>' +
-						'<input type="button" onclick="openReplyComments(' + row.repid + ')" value="대댓글" >' +
+						'<input type="button" onclick="openReplyComments(' + row.repid + ')" value="답글" >' +
 						'<input type="button" onclick="openUpdateComments(' + row.repid + ')" value="수정" >' +
 						'<input type="button" onclick="confirmDelete(' + row.repid + ')" value="삭제" ></i></p></li></ul>');
 					}
 				});
-				if(res.length>5){
-					$('.onComments').append('<p>다음 댓글 보기</p>')
-				}
+				$('.onComments').css('display', 'block');
 				
 			},
 			error : function (req, status, error) {
@@ -106,7 +110,7 @@ crossorigin="anonymous"></script>
 			async : false,
 			success : function(res) {
 				$('#comm'+repid+'').html(
-					'<span>' + res.reWriter + '</span><span>' + res.reRegDate2 +
+					'<span>작성자: ' + res.reWriter + '</span><span>' + res.reRegDate2 +
 					'</span>' + '<textarea cols="20" rows="3" id="updateComments"' +
 					'placeholder="' + res.content + '"></textarea><input type="button"' +
 					'value="수정" onclick="updateComments(' + repid +')">'
@@ -178,7 +182,9 @@ crossorigin="anonymous"></script>
 	
 	function clickComments() {
 		$('.onComments').css('display', 'none');
-		$('ul.commentsOn').css('display', 'block');
+		$('.commentsOn').css('display', 'block');
+		$('.comments > .commsOn').css({'display': 'block',
+			'float': 'left', 'height': '100px', 'margin-right': '55px'});
 	}
 	
 	function openReplyComments(repid) {
@@ -195,8 +201,46 @@ crossorigin="anonymous"></script>
 			'<input type="button" onclick="openUpdateComments(' + res.repid + ')" value="수정" >' +
 			'<input type="button" onclick="confirmDelete(' + res.repid + ')" value="삭제" ></i></p>' +
 			'<p><textarea cols="20" rows="3" id="replyComments"' +
-			'placeholder="대댓글을 다세요"></textarea><input type="button"' +
-			'value="등록" onclick="replyComments(' + repid +')"></p>');
+			'placeholder="답글을 다세요"></textarea><input type="button"' +
+			'value="등록" onclick="replyComments(' + 
+			repid + ', ' + res.seq + ', ' + res.lev + ')"></p>');
+			},
+			error : function (req, status, error) {
+				console.log(req);
+				console.log(status);
+				console.log(error);
+			}
+		})
+	}
+	
+	function replyComments(repid, seq, lev){
+		let content = $('#replyComments').val();
+		let gpid = [[${detail.pid}]];
+		let writer = 'abcd';
+		var lev = lev + 1;
+		var seq = seq;
+		
+		let params = {
+			content: content,
+			gpid: gpid,
+			reWriter: writer,
+			lev: lev,
+			seq: seq
+		};
+		
+		// console.log(params);
+		
+		$.ajax({
+			url : '/board/BoDetail/[[${detail.pid}]]/comments/reply/'+repid,
+			type : 'post',
+			contentType : 'application/json; charset=utf-8',
+			dataType : 'json',
+			data : JSON.stringify(params),
+			async : false,
+			success : function(res) {
+				// console.log(response);
+				alert(res.msg);
+				listComments();
 			},
 			error : function (req, status, error) {
 				console.log(req);

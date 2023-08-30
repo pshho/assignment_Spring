@@ -76,5 +76,19 @@ public class ReplyController {
 		// System.out.println(pid);
 		return rMapper.reDetail(repid);
 	}
+	
+	@PostMapping("board/BoDetail/{pid}/comments/reply/{repid}")
+	public Map<String, String> reReplyAdd(
+			@RequestBody ReplyDTO rDto, @PathVariable int repid) {
+		// System.out.println("보냄?");
+		rDto.setGid(rMapper.reDetail(repid).getGid());
+		rMapper.updateReSeq(rDto);
+		rDto.setSeq(rDto.getSeq()+1);
+		rMapper.insertReReply(rDto);
+		System.out.println(rDto);
+		Map<String, String> msg = new HashMap<>();
+		msg.put("msg", "답글 등록");
+		return msg;
+	}
 
 }

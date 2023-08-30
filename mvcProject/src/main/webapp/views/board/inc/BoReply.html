@@ -3,7 +3,7 @@
 <form action="/board/BoReply" method="post" th:object="${boardDTO}">
 	<table border="" width="900px">
 		<input type="hidden" name="rid" th:value="${detail.rid}" />
-		<input type="hidden" name="seq" th:value="${detail.seq+1}" />
+		<input type="hidden" name="seq" th:value="${detail.seq}" />
 		<input type="hidden" name="lev" th:value="${detail.lev+1}" />
 		<tbody align="center">
 			<tr>

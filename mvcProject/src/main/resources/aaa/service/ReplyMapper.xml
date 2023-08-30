@@ -5,7 +5,7 @@ PUBLIC ".//mybatis.org/DTD Mapper3.0//EN"
 
 <mapper namespace="aaa.service.ReplyMapper">
 	<select id="reList" resultType="rDto" parameterType="Integer">
-		select * from reply where gpid = #{pid} order by gid desc
+		select * from reply where gpid = #{pid} order by gid desc, seq
 	</select>
 	<insert id="insertReply" parameterType="rDto">
 		insert into reply(content, re_writer, seq, lev, gid, gpid)
@@ -23,11 +23,11 @@ PUBLIC ".//mybatis.org/DTD Mapper3.0//EN"
 	<delete id="deleteReply" parameterType="Integer">
 		delete from reply where repid = #{repid}
 	</delete>
-	<update id="updateReSeq" parameterType="rDto">
-		update reply set seq = seq + 1 where repid = #{repid} and seq &gt; #{seq}
-	</update>
-	<insert id="">
+	<insert id="insertReReply" parameterType="rDto">
 		insert into reply(content, re_writer, seq, lev, gid, gpid)
 		values(#{content}, #{reWriter}, #{seq}, #{lev}, #{gid}, #{gpid})
 	</insert>
+	<update id="updateReSeq" parameterType="rDto">
+		update reply set seq = seq + 1 where gid = #{gid} and seq &gt; #{seq}
+	</update>
 </mapper>
