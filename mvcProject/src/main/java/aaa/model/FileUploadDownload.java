@@ -17,55 +17,57 @@ import lombok.Data;
 @Data
 public class FileUploadDownload {
 	// 파일저장
-	public void fileSave(MultipartFile mf) {
+	public void fileSave(MultipartFile... mf) {
 		String path = "D:\\assignment_Spring\\mvcProject\\src\\main\\webapp\\up";
 		String ptn = ".";
 		String ptn2 = null;
 		String ptn3 = ".* \\(1\\)$";
-		String fName = mf.getOriginalFilename();
-		File ff = new File(path+"\\"+fName);
 		
-		try {
-			String rename = null;
-			String exe = null;
+		for(MultipartFile file : mf) {
+			String fName = file.getOriginalFilename();
+			File ff = new File(path+"\\"+fName);
 			
-			int i = 1;
-			while(ff.exists()) { // 중복 확인
-				// 확장자 앞 파일 제목
-				rename = fName.substring(0, fName.lastIndexOf(ptn));
-				// 확장자
-				exe = fName.substring(fName.lastIndexOf(ptn), fName.length());
-				boolean checkFile = Pattern.matches(ptn3, rename);
+			try {
+				String rename = null;
+				String exe = null;
 				
-				// 새로고침했을 때 반복된 파일업로드 고려(실제로 새로고침을 해도 파일이 올라가지 않게
-				// 막을테니 큰 의미 없다고 생각)
-				if(!checkFile && i==1) {
-					rename += " (1)";
-					fName = rename + exe;
-					ff = new File(path+"\\"+fName);
-					continue;
-				}
-				ptn2 = rename.substring(rename.length()-(3+(i+"").length()));
-				
-				while(true) {
-					if(ptn2.equals(" (" + i + ")")) {
-						i++;
-					}else {
-						if(i > 1) {
-							rename = rename.replace(ptn2, (" (" + i + ")"));
-							fName = rename + exe;
-							break;
+				int i = 1;
+				while(ff.exists()) { // 중복 확인
+					// 확장자 앞 파일 제목
+					rename = fName.substring(0, fName.lastIndexOf(ptn));
+					// 확장자
+					exe = fName.substring(fName.lastIndexOf(ptn), fName.length());
+					boolean checkFile = Pattern.matches(ptn3, rename);
+					
+					// 새로고침했을 때 반복된 파일업로드 고려(실제로 새로고침을 해도 파일이 올라가지 않게
+					// 막을테니 큰 의미 없다고 생각)
+					if(!checkFile && i==1) {
+						rename += " (1)";
+						fName = rename + exe;
+						ff = new File(path+"\\"+fName);
+						continue;
+					}
+					ptn2 = rename.substring(rename.length()-(3+(i+"").length()));
+					
+					while(true) {
+						if(ptn2.equals(" (" + i + ")")) {
+							i++;
+						}else {
+							if(i > 1) {
+								rename = rename.replace(ptn2, (" (" + i + ")"));
+								fName = rename + exe;
+								break;
+							}
 						}
 					}
+					ff = new File(path+"\\"+fName);
 				}
-				ff = new File(path+"\\"+fName);
+				FileOutputStream fos = new FileOutputStream(ff);
+				fos.write(file.getBytes());
+				fos.close();
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			
-			FileOutputStream fos = new FileOutputStream(ff);
-			fos.write(mf.getBytes());
-			fos.close();
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 	}
 	
